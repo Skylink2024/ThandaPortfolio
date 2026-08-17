@@ -1187,7 +1187,7 @@ export default function AdminDashboard() {
                   }
                   className={inputClass}
                   placeholder={
-                    key === "github_url" ? "https://github.com/your-username" : undefined
+                    key === "github_url" ? "https://github.com/Skylink2024" : undefined
                   }
                 />
               </label>
