@@ -25,11 +25,11 @@ export function ProjectImage({
         className={`flex items-center justify-center bg-gradient-to-br from-bronze/30 via-ink-soft to-ink ${className}`}
       >
         <Image
-          src="/brand/logo-transparent.png"
+          src="/brand/mark.png"
           alt=""
-          width={180}
-          height={80}
-          className="h-auto w-[42%] max-w-[180px] object-contain opacity-70"
+          width={72}
+          height={72}
+          className="h-auto w-14 object-contain opacity-70"
         />
       </div>
     );

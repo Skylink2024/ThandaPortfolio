@@ -2,7 +2,6 @@
 
 import { FormEvent, useState } from "react";
 import type { AboutSettings } from "@/lib/types";
-import { GitBranch } from "lucide-react";
 
 function toWhatsAppNumber(phone: string) {
   return phone.replace(/\D/g, "");
@@ -85,19 +84,6 @@ export function Contact({
                 WhatsApp · {about.phone}
               </a>
             </p>
-            {about.github_url && (
-              <p className="flex items-center gap-2">
-                <GitBranch size={14} className="text-gold" />
-                <a
-                  className="break-all hover:text-gold"
-                  href={about.github_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </p>
-            )}
             <p>{about.location}</p>
           </div>
         </div>

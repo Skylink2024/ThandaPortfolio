@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, GitBranch } from "lucide-react";
 
-export function Hero() {
+export function Hero({ githubUrl }: { githubUrl?: string }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -102,6 +102,17 @@ export function Hero() {
           >
             Let&apos;s Talk
           </Link>
+          {githubUrl && (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 border border-gold/45 px-8 py-3.5 text-center text-xs tracking-[0.22em] text-gold uppercase transition hover:bg-gold/10"
+            >
+              <GitBranch size={14} />
+              GitHub
+            </a>
+          )}
         </motion.div>
 
         <motion.a

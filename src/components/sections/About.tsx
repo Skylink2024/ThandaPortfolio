@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import type { AboutSettings } from "@/lib/types";
-import { GitBranch, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Reveal } from "@/components/ui/Motion";
 
 export function About({
@@ -48,11 +48,11 @@ export function About({
               ) : (
                 <div className="flex aspect-[4/5] flex-col items-center justify-center gap-6 p-6 md:p-8">
                   <Image
-                    src="/brand/logo-transparent.png"
-                    alt="Thanda Manuel logo"
-                    width={640}
-                    height={280}
-                    className="mx-auto h-auto w-full max-w-[240px] object-contain md:max-w-[280px]"
+                    src="/brand/mark.png"
+                    alt=""
+                    width={160}
+                    height={160}
+                    className="mx-auto h-auto w-24 object-contain md:w-28"
                   />
                 </div>
               )}
@@ -125,19 +125,6 @@ export function About({
                 <MapPin size={16} className="shrink-0 text-gold" />
                 {about.location}
               </li>
-              {about.github_url && (
-                <li className="flex min-w-0 items-center gap-3">
-                  <GitBranch size={16} className="shrink-0 text-gold" />
-                  <a
-                    href={about.github_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="break-all transition hover:text-gold"
-                  >
-                    GitHub
-                  </a>
-                </li>
-              )}
             </ul>
           </Reveal>
         </div>

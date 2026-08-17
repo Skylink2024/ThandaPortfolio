@@ -53,8 +53,9 @@ export function SiteNav() {
       <div className="section-pad mx-auto flex h-16 max-w-7xl items-center justify-between md:h-[4.5rem]">
         <Link
           href="/"
-          className="group flex min-w-0 items-center gap-2 sm:gap-3"
+          className="group flex min-w-0 items-center"
           onClick={() => setOpen(false)}
+          aria-label="Home"
         >
           <Image
             src="/brand/mark.png"
@@ -64,9 +65,6 @@ export function SiteNav() {
             className="h-9 w-9 shrink-0 object-contain transition duration-500 group-hover:scale-105 sm:h-10 sm:w-10 md:h-11 md:w-11"
             priority
           />
-          <span className="truncate font-[family-name:var(--font-display)] text-base tracking-[0.14em] text-cream sm:text-lg sm:tracking-[0.2em] md:text-xl">
-            THANDA <span className="text-gold">MANUEL</span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
