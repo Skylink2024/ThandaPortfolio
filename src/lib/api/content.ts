@@ -11,7 +11,7 @@ const defaultAbout: AboutSettings = {
   bio: "Full-stack developer with 7+ live production applications built using TypeScript and modern JavaScript frameworks, combined with 4+ years of B2B sales, partnership development, and digital marketing experience.",
   roles: ["Full-Stack Developer", "Digital Marketing Specialist", "Product Builder"],
   photo_url: "",
-  github_url: "",
+  github_url: "https://github.com/Skylink2024/ThandaPortfolio",
 };
 
 export async function fetchSkills() {

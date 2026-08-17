@@ -15,7 +15,7 @@ export const fallbackAbout = {
     "Product Builder",
   ],
   photo_url: "",
-  github_url: "",
+  github_url: "https://github.com/Skylink2024/ThandaPortfolio",
 };
 
 export const fallbackSkills: Skill[] = DEFAULT_SKILLS.map((skill, index) => ({
