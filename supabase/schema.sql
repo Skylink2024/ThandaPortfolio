@@ -1,6 +1,6 @@
 -- ThandaPortfolio schema
--- Run in Supabase Dashboard → SQL Editor for project: zvicutdibrqpflliwlvi
--- https://supabase.com/dashboard/project/zvicutdibrqpflliwlvi/sql/new
+-- Run in Supabase Dashboard → SQL Editor for project: xtxoiwlzrtjwvawfqbfb
+-- https://supabase.com/dashboard/project/xtxoiwlzrtjwvawfqbfb/sql/new
 -- NOT Angola Avalia
 
 -- Extensions

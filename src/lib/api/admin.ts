@@ -110,10 +110,17 @@ export async function replaceAllSkills(
   if (error) throw error;
 }
 
+const supabaseUrl =
+  process.env.NEXT_PUBLIC_SUPABASE_URL ||
+  "https://xtxoiwlzrtjwvawfqbfb.supabase.co";
+const supabaseRef =
+  supabaseUrl.match(/https?:\/\/([^.]+)\.supabase\.co/)?.[1] ||
+  "xtxoiwlzrtjwvawfqbfb";
+
 export const SUPABASE_PROJECT = {
-  name: "ThandaPortfolio",
-  ref: "zvicutdibrqpflliwlvi",
-  url: process.env.NEXT_PUBLIC_SUPABASE_URL || "https://zvicutdibrqpflliwlvi.supabase.co",
-  sqlEditor: "https://supabase.com/dashboard/project/zvicutdibrqpflliwlvi/sql/new",
-  authUsers: "https://supabase.com/dashboard/project/zvicutdibrqpflliwlvi/auth/users",
+  name: "Brike Web",
+  ref: supabaseRef,
+  url: supabaseUrl,
+  sqlEditor: `https://supabase.com/dashboard/project/${supabaseRef}/sql/new`,
+  authUsers: `https://supabase.com/dashboard/project/${supabaseRef}/auth/users`,
 };

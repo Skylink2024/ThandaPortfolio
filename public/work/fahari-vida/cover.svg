@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1F3A"/>
+      <stop offset="100%" stop-color="#1E6FFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <text x="80" y="120" fill="#5CC8FF" font-family="system-ui" font-size="42">PLACEHOLDER</text>
+  <text x="80" y="520" fill="white" font-family="system-ui" font-size="72" font-weight="700">Fahari Vida</text>
+</svg>

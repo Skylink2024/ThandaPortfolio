@@ -5,15 +5,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "zvicutdibrqpflliwlvi.supabase.co",
+        hostname: "**.supabase.co",
       },
       {
         protocol: "https",
         hostname: "s.wordpress.com",
-      },
-      {
-        protocol: "https",
-        hostname: "**.supabase.co",
       },
     ],
   },

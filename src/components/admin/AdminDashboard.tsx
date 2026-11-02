@@ -52,7 +52,7 @@ import {
   uploadProfileImage,
   uploadProjectImage,
 } from "@/lib/api/projects";
-import { ProjectImage } from "@/components/projects/ProjectImage";
+import { ProjectImage } from "@/components/admin/ProjectImage";
 import { fallbackAbout } from "@/lib/fallback";
 import { DEFAULT_SKILLS, SKILL_CATEGORIES } from "@/lib/skills-data";
 import { createClient } from "@/lib/supabase/client";
@@ -390,7 +390,7 @@ export default function AdminDashboard() {
         >
           <div className="flex items-center gap-3">
             <Image
-              src="/brand/mark.png"
+              src="/logo-mark.png"
               alt=""
               width={48}
               height={48}
@@ -398,7 +398,7 @@ export default function AdminDashboard() {
             />
             <div>
               <p className="text-[10px] tracking-[0.28em] text-gold uppercase">
-                Thanda Manuel
+                Brike Web
               </p>
               <h1 className="font-[family-name:var(--font-display)] text-3xl text-cream">
                 Admin
