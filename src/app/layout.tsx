@@ -7,7 +7,7 @@ import '@/styles/globals.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
+  weight: ['600'],
   variable: '--font-plus-jakarta',
   display: 'swap',
   preload: true,
@@ -15,7 +15,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  weight: ['400', '600'],
   variable: '--font-inter',
   display: 'swap',
   preload: true,

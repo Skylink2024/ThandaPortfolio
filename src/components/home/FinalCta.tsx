@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
@@ -15,12 +14,14 @@ export function FinalCta() {
   return (
     <section id="final-cta" className="bg-navy-900 relative isolate overflow-hidden text-white">
       <div aria-hidden="true" className="absolute inset-0 -z-10">
-        <Image
+        <img
           src="/hero-gradient.jpg"
           alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-center opacity-60"
+          width={960}
+          height={540}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-60"
         />
         <div className="cta-scrim absolute inset-0" />
       </div>
