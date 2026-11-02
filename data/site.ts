@@ -1,5 +1,5 @@
 export interface SocialLink {
-  label: 'Instagram' | 'Facebook' | 'TikTok';
+  label: 'Instagram' | 'Facebook' | 'LinkedIn';
   href: string;
   placeholder?: boolean;
 }
@@ -38,10 +38,9 @@ export const site: SiteConfig = {
   about:
     "I'm Thanda Manuel, a web developer with over four years of experience building modern, fast and functional websites. Alongside web development, I work as a funding specialist, helping small businesses access the financial support they need to grow. I'm passionate about technology, creativity and helping businesses establish a stronger presence online. I enjoy turning ideas into digital experiences that not only look good but also serve a real purpose. Beyond work, I'm a husband and a proud father to a little boy. My family is my greatest motivation and reminds me of the importance of commitment, hard work and keeping my word. Through Brike Web, I bring together my technical experience and passion for helping businesses grow, one website at a time.",
   socials: [
-    { label: 'Instagram', href: 'https://instagram.com/brikeweb' },
+    { label: 'Instagram', href: 'https://www.instagram.com/thanda_manuel/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/thanda-manuel/' },
     { label: 'Facebook', href: 'https://facebook.com/profile.php?id=61596026195778' },
-    // TODO(Thanda): add TikTok URL
-    { label: 'TikTok', href: '#', placeholder: true },
   ],
   nav: [
     { label: 'Work', href: '/work' },

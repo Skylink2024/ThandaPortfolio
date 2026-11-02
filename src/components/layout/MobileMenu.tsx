@@ -169,7 +169,7 @@ export function MobileMenu({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="inline-flex size-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-cyan-glow hover:text-cyan-glow"
+                    className="inline-flex size-11 items-center justify-center rounded-[var(--radius-sm)] border border-white/20 text-white transition-colors hover:border-white/50"
                   >
                     <SocialIcon name={social.label} />
                   </a>

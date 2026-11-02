@@ -1108,7 +1108,7 @@ export default function AdminDashboard() {
               Your photo
             </h2>
             <p className="mt-2 text-sm text-cream-dim">
-              Upload a portrait for the About page. It appears next to your bio.
+              Upload a portrait — it shows on the homepage Meet section and the About page.
             </p>
             <div className="mt-4 overflow-hidden border border-gold/20 bg-ink">
               {about.photo_url ? (
@@ -1170,9 +1170,12 @@ export default function AdminDashboard() {
               [
                 ["name", "Name"],
                 ["email", "Email"],
-                ["phone", "Phone"],
+                ["phone", "Phone / WhatsApp"],
                 ["location", "Location"],
-                ["github_url", "GitHub URL"],
+                ["linkedin_url", "LinkedIn URL"],
+                ["instagram_url", "Instagram URL"],
+                ["facebook_url", "Facebook URL"],
+                ["github_url", "GitHub URL (optional)"],
                 ["tagline", "Tagline"],
                 ["headline", "Headline"],
               ] as const
@@ -1180,14 +1183,22 @@ export default function AdminDashboard() {
               <label key={key} className={labelClass}>
                 {label}
                 <input
-                  type={key === "github_url" ? "url" : "text"}
+                  type={key.endsWith("_url") ? "url" : "text"}
                   value={about[key]}
                   onChange={(e) =>
                     setAbout({ ...about, [key]: e.target.value })
                   }
                   className={inputClass}
                   placeholder={
-                    key === "github_url" ? "https://github.com/Skylink2024" : undefined
+                    key === "linkedin_url"
+                      ? "https://www.linkedin.com/in/thanda-manuel/"
+                      : key === "instagram_url"
+                        ? "https://www.instagram.com/thanda_manuel/"
+                        : key === "facebook_url"
+                          ? "https://facebook.com/…"
+                          : key === "github_url"
+                            ? "https://github.com/…"
+                            : undefined
                   }
                 />
               </label>

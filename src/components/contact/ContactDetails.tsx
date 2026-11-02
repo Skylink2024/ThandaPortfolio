@@ -1,4 +1,2 @@
-/** Stub — implemented in a later phase. */
-export function ContactDetails() {
-  return null;
-}
+/** Re-export — details live with the contact form module. */
+export { ContactDetails } from '@/components/contact/ContactForm';

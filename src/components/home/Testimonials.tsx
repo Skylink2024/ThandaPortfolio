@@ -11,7 +11,7 @@ export function Testimonials() {
 
   return (
     <Section id="testimonials" tone="default">
-      <SectionHeading align="center" title="What clients say" />
+      <SectionHeading eyebrow="Kind words" title="What clients say" />
       <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {testimonials.slice(0, 3).map((t) => (
           <li key={t.id}>

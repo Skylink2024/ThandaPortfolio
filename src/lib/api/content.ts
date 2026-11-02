@@ -1,18 +1,6 @@
 import { createClient } from "@/lib/supabase/client";
+import { fallbackAbout } from "@/lib/fallback";
 import type { AboutSettings, Skill } from "@/lib/types";
-
-const defaultAbout: AboutSettings = {
-  name: "Thanda Manuel",
-  email: "Brikemanuel@gmail.com",
-  location: "Cape Town, South Africa",
-  phone: "+27 671280592",
-  tagline: "Purpose · Disciple · Legacy",
-  headline: "Full-stack developer who ships production products.",
-  bio: "Full-stack developer with 7+ live production applications built using TypeScript and modern JavaScript frameworks, combined with 4+ years of B2B sales, partnership development, and digital marketing experience.",
-  roles: ["Full-Stack Developer", "Digital Marketing Specialist", "Product Builder"],
-  photo_url: "",
-  github_url: "https://github.com/Skylink2024",
-};
 
 export async function fetchSkills() {
   const supabase = createClient();
@@ -34,8 +22,8 @@ export async function fetchAbout() {
     .maybeSingle();
 
   if (error) throw error;
-  if (!data?.value) return defaultAbout;
-  return { ...defaultAbout, ...(data.value as AboutSettings) };
+  if (!data?.value) return fallbackAbout;
+  return { ...fallbackAbout, ...(data.value as Partial<AboutSettings>) };
 }
 
 export async function submitContact(payload: {

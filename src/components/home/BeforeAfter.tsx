@@ -14,15 +14,15 @@ const BeforeAfterDemo = dynamic(() => import('./BeforeAfterDemo'), {
 
 export function BeforeAfter() {
   return (
-    <Section id="before-after" tone="default">
+    <Section id="before-after" tone="surface">
       <SectionHeading
-        align="center"
+        eyebrow="Before & after"
         title="From outdated to outstanding."
         subtitle="Drag the slider to see the difference a modern website makes."
       />
-      <Reveal className="mx-auto max-w-4xl">
+      <Reveal>
         <BeforeAfterDemo />
-        <p className="text-small mt-4 text-center text-gray-500">
+        <p className="text-small mt-4 text-gray-700">
           Example design: a fictional business, not a client.
         </p>
       </Reveal>

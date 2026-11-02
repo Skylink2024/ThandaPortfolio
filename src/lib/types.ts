@@ -33,6 +33,9 @@ export type AboutSettings = {
   roles: string[];
   photo_url: string;
   github_url: string;
+  linkedin_url: string;
+  instagram_url: string;
+  facebook_url: string;
 };
 
 export type ProjectFormData = {

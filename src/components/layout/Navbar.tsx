@@ -50,11 +50,16 @@ export function Navbar({ items, className }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const overHero = pathname === '/' && !compact && !menuOpen;
+
   return (
     <>
       <header
         className={cn(
-          'glass sticky top-0 z-40 border-b border-border/60 transition-transform duration-300 ease-out',
+          'sticky top-0 z-40 transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out',
+          overHero
+            ? 'border-b border-transparent bg-transparent'
+            : 'glass border-x-0 border-t-0 shadow-[var(--shadow-sm)]',
           hidden && !menuOpen && '-translate-y-full',
           className,
         )}
@@ -86,7 +91,7 @@ export function Navbar({ items, className }: NavbarProps) {
                 width={116}
                 height={64}
                 priority
-                className="h-8 w-auto"
+                className={cn('h-8 w-auto transition-[filter] duration-300', overHero && 'brightness-0 invert')}
               />
             </motion.span>
           </Link>
@@ -105,14 +110,24 @@ export function Navbar({ items, className }: NavbarProps) {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'relative rounded-full px-3.5 py-2 text-small font-semibold transition-colors',
-                    active ? 'text-blue' : 'text-gray-700 hover:text-blue',
+                    'relative px-3.5 py-2 text-small transition-colors',
+                    overHero
+                      ? active
+                        ? 'text-white'
+                        : 'text-white/70 hover:text-white'
+                      : active
+                        ? 'text-gray-900'
+                        : 'text-gray-500 hover:text-gray-900',
                   )}
                 >
+                  {item.label}
                   {active ? (
                     <motion.span
-                      layoutId="nav-pill"
-                      className="absolute inset-0 -z-10 rounded-full bg-blue-100"
+                      layoutId="nav-underline"
+                      className={cn(
+                        'absolute right-3.5 bottom-0.5 left-3.5 h-px',
+                        overHero ? 'bg-white' : 'bg-gray-900',
+                      )}
                       transition={
                         reduced
                           ? { duration: 0 }
@@ -120,21 +135,31 @@ export function Navbar({ items, className }: NavbarProps) {
                       }
                     />
                   ) : null}
-                  {item.label}
                 </Link>
               );
             })}
           </nav>
 
           <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <Button href="/build" size="sm" className="hidden md:inline-flex">
+            <ThemeToggle className={overHero ? 'border-white/25 text-white' : undefined} />
+            <Button
+              href="/build"
+              size="sm"
+              variant="secondary"
+              className={cn(
+                'hidden md:inline-flex',
+                overHero && '!text-navy-900 bg-white shadow-none hover:bg-white/90',
+              )}
+            >
               Design my site
             </Button>
             <button
               ref={menuButtonRef}
               type="button"
-              className="inline-flex size-11 items-center justify-center rounded-[var(--radius-md)] border border-border text-gray-900 lg:hidden"
+              className={cn(
+                'inline-flex size-11 items-center justify-center rounded-[var(--radius-md)] border lg:hidden',
+                overHero ? 'border-white/25 text-white' : 'border-border text-gray-900',
+              )}
               aria-label="Open menu"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"

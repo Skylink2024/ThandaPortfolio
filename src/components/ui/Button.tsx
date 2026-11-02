@@ -17,10 +17,10 @@ export interface ButtonProps
 
 const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary:
-    'bg-blue text-white hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)] hover:bg-blue-600',
-  secondary: 'bg-navy text-white hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]',
-  ghost: 'bg-transparent text-gray-900 hover:bg-blue-100',
-  whatsapp: 'bg-whatsapp text-white hover:-translate-y-0.5 hover:brightness-105',
+    'bg-blue text-white shadow-[var(--shadow-glow)] hover:bg-blue-600',
+  secondary: 'bg-gray-900 text-bg shadow-[var(--shadow-md)] hover:opacity-90',
+  ghost: 'bg-transparent text-gray-900 hover:bg-surface-2',
+  whatsapp: 'bg-whatsapp text-white hover:brightness-105',
   outline:
     'border border-border bg-transparent text-gray-900 hover:border-blue hover:text-blue',
 };
@@ -28,7 +28,7 @@ const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
 const sizeClasses: Record<NonNullable<ButtonProps['size']>, string> = {
   sm: 'h-10 px-4 text-sm',
   md: 'h-12 px-5 text-base',
-  lg: 'h-14 px-6 text-lg',
+  lg: 'h-12 px-5 text-base sm:h-14 sm:px-6 sm:text-lg',
 };
 
 function isExternalHref(href: string) {
@@ -56,7 +56,7 @@ export function Button({
   ...rest
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)] font-semibold transition-all duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue disabled:pointer-events-none disabled:opacity-50',
+    'inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)] font-semibold whitespace-nowrap transition-all duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue disabled:pointer-events-none disabled:opacity-50',
     variantClasses[variant],
     sizeClasses[size],
     fullWidth && 'w-full',

@@ -1,8 +1,13 @@
-export default function FaqPageStub() {
-  return (
-    <div className="container-brike py-24">
-      <h1 className="text-h1">Coming in a later phase</h1>
-      <p className="mt-4 text-lead text-gray-500">/faq</p>
-    </div>
-  );
+import type { Metadata } from 'next';
+import { FaqPageClient } from '@/components/faq/FaqPageClient';
+
+export const metadata: Metadata = {
+  title: 'FAQ',
+  description:
+    'Straight answers about deposits, prices, timelines and Google from Brike Web in Cape Town.',
+  alternates: { canonical: '/faq' },
+};
+
+export default function FaqPage() {
+  return <FaqPageClient />;
 }

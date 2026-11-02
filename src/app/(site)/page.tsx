@@ -1,32 +1,36 @@
 import { Hero } from '@/components/home/Hero';
-import { StatsStrip } from '@/components/home/StatsStrip';
-import { IndustryMarquee } from '@/components/home/IndustryMarquee';
-import { HowItWorks } from '@/components/home/HowItWorks';
-import { BuilderTeaser } from '@/components/home/BuilderTeaser';
-import { PackagesPreview } from '@/components/home/PackagesPreview';
-import { BeforeAfter } from '@/components/home/BeforeAfter';
-import { WhyBrikeWeb } from '@/components/home/WhyBrikeWeb';
 import { WorkShowcase } from '@/components/home/WorkShowcase';
+import { Services } from '@/components/home/Services';
+import { PayAfterTimeline } from '@/components/pricing/PayAfterTimeline';
 import { MeetThanda } from '@/components/home/MeetThanda';
 import { Testimonials } from '@/components/home/Testimonials';
-import { FaqPreview } from '@/components/home/FaqPreview';
 import { FinalCta } from '@/components/home/FinalCta';
+import {
+  getPublicAbout,
+  getPublicCmsProjects,
+  portraitSrc,
+  socialsFromAbout,
+} from '@/lib/public-content';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [about, cmsProjects] = await Promise.all([
+    getPublicAbout(),
+    getPublicCmsProjects(),
+  ]);
+
   return (
     <>
       <Hero />
-      <StatsStrip />
-      <IndustryMarquee />
-      <HowItWorks />
-      <BuilderTeaser />
-      <PackagesPreview />
-      <BeforeAfter />
-      <WhyBrikeWeb />
-      <WorkShowcase />
-      <MeetThanda />
+      <WorkShowcase cmsProjects={cmsProjects} index="01" />
+      <Services index="02" />
+      <PayAfterTimeline index="03" />
+      <MeetThanda
+        about={about}
+        socials={socialsFromAbout(about)}
+        photoSrc={portraitSrc(about)}
+        index="04"
+      />
       <Testimonials />
-      <FaqPreview />
       <FinalCta />
     </>
   );

@@ -28,7 +28,7 @@ export function Segmented<T extends string = string>({
       role="radiogroup"
       aria-label={ariaLabel}
       className={cn(
-        'inline-flex rounded-[var(--radius-md)] border border-border bg-surface-2 p-1',
+        'flex flex-wrap rounded-[var(--radius-md)] border border-border bg-surface-2 p-1 sm:inline-flex sm:flex-nowrap',
         className,
       )}
     >
@@ -43,8 +43,8 @@ export function Segmented<T extends string = string>({
             disabled={opt.disabled}
             onClick={() => onChange(opt.value)}
             className={cn(
-              'rounded-[calc(var(--radius-md)-2px)] px-3 py-2 text-small font-semibold transition-colors',
-              selected ? 'bg-bg text-gray-900 shadow-[var(--shadow-sm)]' : 'text-gray-500',
+              'min-w-0 flex-1 rounded-[calc(var(--radius-md)-2px)] px-2 py-2 text-xs font-semibold transition-colors sm:flex-none sm:px-3 sm:text-small',
+              selected ? 'bg-bg text-gray-900 shadow-[var(--shadow-sm)]' : 'text-gray-700',
               opt.disabled && 'opacity-40',
             )}
           >

@@ -22,11 +22,11 @@ const explore = [
 ];
 
 const services = [
-  { label: 'Websites', href: '/pricing#websites' },
-  { label: 'Online Shops', href: '/pricing#online-shops' },
+  { label: 'Websites', href: '/pricing#packages' },
+  { label: 'Online Shops', href: '/pricing#packages' },
   { label: 'SEO', href: '/pricing#seo' },
-  { label: 'Google Business Profile', href: '/pricing#google-business' },
-  { label: 'Care plans', href: '/pricing#care-plans' },
+  { label: 'Google Business Profile', href: '/pricing#google' },
+  { label: 'Care plans', href: '/pricing#care' },
 ];
 
 export function Footer({ className }: FooterProps) {
@@ -36,15 +36,7 @@ export function Footer({ className }: FooterProps) {
   );
 
   return (
-    <footer className={cn('relative overflow-hidden bg-navy text-white', className)}>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,var(--cyan-glow),var(--blue),transparent)] opacity-80"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[radial-gradient(ellipse_at_top,rgba(92,200,255,0.18),transparent_65%)]"
-      />
+    <footer className={cn('relative overflow-hidden border-t border-white/10 bg-navy-900 pb-8 text-white md:pb-0', className)}>
 
       <div className="container-brike relative grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
@@ -67,8 +59,8 @@ export function Footer({ className }: FooterProps) {
           <p className="mb-3 text-micro text-white/50">Explore</p>
           <ul className="space-y-2">
             {explore.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="text-small hover:text-cyan-glow">
+              <li key={item.label}>
+                <Link href={item.href} className="text-small text-white/70 transition-colors hover:text-white">
                   {item.label}
                 </Link>
               </li>
@@ -80,8 +72,8 @@ export function Footer({ className }: FooterProps) {
           <p className="mb-3 text-micro text-white/50">Services</p>
           <ul className="space-y-2">
             {services.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="text-small hover:text-cyan-glow">
+              <li key={item.label}>
+                <Link href={item.href} className="text-small text-white/70 transition-colors hover:text-white">
                   {item.label}
                 </Link>
               </li>
@@ -96,7 +88,7 @@ export function Footer({ className }: FooterProps) {
           </Button>
           <a
             href={`mailto:${site.email}`}
-            className="block text-small hover:text-cyan-glow"
+            className="block text-small text-white/70 transition-colors hover:text-white"
           >
             {site.email}
           </a>
@@ -134,7 +126,7 @@ export function Footer({ className }: FooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="inline-flex size-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-cyan-glow hover:text-cyan-glow"
+                  className="inline-flex size-9 items-center justify-center rounded-[var(--radius-sm)] border border-white/15 text-white/70 transition-colors hover:border-white/40 hover:text-white"
                 >
                   <SocialIcon name={social.label} className="size-4" />
                 </a>
@@ -142,7 +134,7 @@ export function Footer({ className }: FooterProps) {
             })}
           </div>
 
-          <p>Built by Thanda, obviously.</p>
+          <p>Designed &amp; built in Cape Town.</p>
         </div>
       </div>
     </footer>

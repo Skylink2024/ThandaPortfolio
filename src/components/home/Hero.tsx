@@ -1,136 +1,142 @@
 'use client';
 
-import { Fragment } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { useRef } from 'react';
+import Image from 'next/image';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { MagneticButton } from '@/components/ui/MagneticButton';
-import { Button } from '@/components/ui/Button';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
-import { site } from '@data/site';
+import { getPackage } from '@/lib/pricing';
+import { formatZAR } from '@/lib/format';
 import { whatsappLink } from '@/lib/whatsapp';
-import { wordReveal, wordRevealChild } from '@/lib/motion';
+import { ease, wordReveal, wordRevealChild } from '@/lib/motion';
+import { site } from '@data/site';
 import { HeroMockupCycler } from './HeroMockupCycler';
-import { Spotlight } from './Spotlight';
 
-const headlineWords: { word: string; gradient?: boolean }[] = [
-  { word: 'Your' },
-  { word: 'website' },
-  { word: 'first.' },
-  { word: 'You' },
-  { word: 'pay', gradient: true },
-  { word: 'when', gradient: true },
-  { word: 'you', gradient: true },
-  { word: 'love', gradient: true },
-  { word: 'it.', gradient: true },
+const facts = [
+  { label: 'Deposit', value: 'R0' },
+  { label: 'Websites from', value: formatZAR(getPackage('starter').price) },
+  { label: 'Delivery', value: '3–10 days' },
 ];
-
-const trust = ['R0 deposit', 'From R2,500', 'Pay after approval'];
-
-function HeroBackground() {
-  return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="hero-blob hero-blob-a bg-navy-700 -top-24 -left-24 size-[420px] opacity-25 md:size-[560px]" />
-      <div className="hero-blob hero-blob-b bg-blue top-1/4 -right-24 size-[380px] opacity-25 md:size-[520px]" />
-      <div className="hero-blob hero-blob-c bg-cyan-glow -bottom-32 left-1/3 size-[340px] opacity-25 md:size-[460px]" />
-      <div className="hero-grid absolute inset-0" />
-      <div className="hero-noise absolute inset-0" />
-    </div>
-  );
-}
 
 export function Hero() {
   const reduced = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-6%']);
+
   const waHref = whatsappLink(
     site.whatsappNumber,
     "Hi Thanda, I found Brike Web and I'd like a website.",
   );
 
+  const fadeIn = (delay: number) =>
+    reduced
+      ? {}
+      : {
+          initial: { opacity: 0, y: 18 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.8, ease: ease.out, delay },
+        };
+
   return (
     <section
+      ref={ref}
       id="hero"
-      className="bg-bg relative overflow-hidden pt-28 pb-20 md:pt-36 lg:pt-40 lg:pb-28"
+      className="bg-navy-900 relative isolate -mt-[72px] overflow-hidden pt-28 pb-16 text-white md:pt-44 md:pb-28"
     >
-      <HeroBackground />
-      <Spotlight />
+      <div aria-hidden="true" className="absolute inset-0 -z-10">
+        <Image
+          src="/hero-gradient.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
+      <div aria-hidden="true" className="hero-scrim absolute inset-0 -z-10" />
 
-      <div className="container-brike relative grid items-center gap-14 lg:grid-cols-[55fr_45fr] lg:gap-10">
-        <div className="text-center lg:text-left">
-          <p className="text-micro text-blue">Web design · Cape Town</p>
-
+      <motion.div
+        style={reduced ? undefined : { y: contentY }}
+        className="container-brike grid items-center gap-14 lg:grid-cols-12 lg:gap-10"
+      >
+        <div className="min-w-0 lg:col-span-6">
           <motion.h1
-            className="text-display mt-4 text-gray-900"
+            className="text-display text-white [text-shadow:0_2px_24px_rgba(6,19,37,0.55)]"
             variants={wordReveal}
             initial={reduced ? false : 'hidden'}
             animate="visible"
-            aria-label="Your website first. You pay when you love it."
           >
-            {headlineWords.map(({ word, gradient }, i) => (
-              <Fragment key={`${word}-${i}`}>
-                <span
-                  aria-hidden="true"
-                  className="inline-block overflow-hidden pb-[0.12em] align-bottom"
-                >
-                  <motion.span
-                    variants={wordRevealChild}
-                    className={gradient ? 'text-gradient-brand inline-block' : 'inline-block'}
-                  >
-                    {word}
-                  </motion.span>
-                </span>{' '}
-              </Fragment>
-            ))}
+            <span className="block overflow-hidden pt-[0.06em] pb-[0.12em]">
+              <motion.span variants={wordRevealChild} className="block tracking-[-0.05em]">
+                Your website first.
+              </motion.span>
+            </span>
+            <span className="mt-2 block overflow-hidden pt-[0.06em] pb-[0.14em] text-[0.46em] leading-[1.15] font-medium tracking-[-0.03em] text-white/80 sm:mt-3 sm:text-[0.42em]">
+              <motion.span variants={wordRevealChild} className="block">
+                You pay when you{' '}
+                <span className="text-white underline decoration-[#5cc8ff] decoration-2 underline-offset-[0.18em]">
+                  love it
+                </span>
+                .
+              </motion.span>
+            </span>
           </motion.h1>
 
-          <p className="text-lead mx-auto mt-6 max-w-xl text-gray-700 lg:mx-0">
-            Affordable, modern websites for Cape Town small businesses, built in days, not months.
-            No deposit. No risk.
-          </p>
+          <motion.p {...fadeIn(0.35)} className="text-lead mt-6 max-w-xl text-white">
+            Modern websites for Cape Town small businesses, designed and built by me in days, not
+            months. No deposit, no risk.
+          </motion.p>
 
-          <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
-            <MagneticButton href="/build" size="lg" className="w-full sm:w-auto" fullWidth>
+          <motion.div {...fadeIn(0.45)} className="mt-8 flex w-full flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
+            <MagneticButton
+              href="/build"
+              size="lg"
+              variant="secondary"
+              strength={0.15}
+              fullWidth
+              className="!bg-white !text-navy-900 w-full shadow-[0_18px_40px_-14px_rgba(255,255,255,0.45)] hover:!bg-white/90 sm:w-auto"
+              icon={<ArrowRight className="size-4" />}
+              iconPosition="right"
+            >
               Design my website
             </MagneticButton>
-            <Button
-              href="/pricing#configurator"
-              variant="outline"
-              size="lg"
-              className="w-full sm:w-auto"
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-dark inline-flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] px-6 text-base font-semibold text-white transition hover:bg-white/15 sm:h-14 sm:w-auto"
             >
-              Build my price
-            </Button>
-          </div>
+              <WhatsAppIcon className="text-whatsapp size-5" />
+              WhatsApp me
+            </a>
+          </motion.div>
 
-          <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-small hover:text-whatsapp mt-5 inline-flex items-center gap-2 font-semibold text-gray-700 transition-colors"
-          >
-            <WhatsAppIcon className="text-whatsapp size-5" />
-            WhatsApp me
-          </a>
-
-          <ul className="text-small mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-gray-500 lg:justify-start">
-            {trust.map((t) => (
-              <li key={t} className="inline-flex items-center gap-1.5">
-                <Check className="text-success size-4" aria-hidden="true" />
-                {t}
-              </li>
+          <motion.dl {...fadeIn(0.55)} className="mt-10 grid max-w-xl grid-cols-1 gap-2 min-[480px]:grid-cols-3 min-[480px]:gap-3">
+            {facts.map((f) => (
+              <div
+                key={f.label}
+                className="glass-dark flex items-center justify-between gap-4 rounded-[var(--radius-lg)] px-4 py-3 min-[480px]:block min-[480px]:py-4"
+              >
+                <dt className="text-xs font-semibold tracking-wide text-white/80">{f.label}</dt>
+                <dd className="font-heading text-lg font-semibold tracking-tight text-white min-[480px]:mt-1.5 sm:text-2xl">
+                  {f.value}
+                </dd>
+              </div>
             ))}
-          </ul>
+          </motion.dl>
         </div>
 
-        <HeroMockupCycler />
-      </div>
-
-      <div
-        aria-hidden="true"
-        className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 lg:block"
-      >
-        <span className="flex h-8 w-5 justify-center rounded-full border-2 border-gray-500/60 pt-1.5">
-          <span className="brike-scroll-dot block size-1 rounded-full bg-gray-500" />
-        </span>
-      </div>
+        <motion.div
+          className="min-w-0 lg:col-span-6"
+          initial={reduced ? false : { opacity: 0, y: 40, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1, ease: ease.out, delay: 0.3 }}
+        >
+          <HeroMockupCycler />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

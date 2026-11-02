@@ -1,6 +1,7 @@
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
-import { Section } from '@/components/ui/Section';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import { site } from '@data/site';
 import { whatsappLink } from '@/lib/whatsapp';
@@ -12,43 +13,60 @@ export function FinalCta() {
   );
 
   return (
-    <Section id="final-cta" tone="default" className="!pt-0">
-      <Reveal>
-        <div
-          className="relative overflow-hidden rounded-[var(--radius-xl)] px-6 py-14 text-center text-white shadow-[var(--shadow-lg)] sm:px-12 lg:py-20"
-          style={{ background: 'var(--brand-gradient)' }}
-        >
-          <div
-            aria-hidden="true"
-            className="bg-cyan-glow pointer-events-none absolute -top-20 -right-20 size-80 rounded-full opacity-30 blur-[90px]"
-          />
-          <div className="relative">
-            <h2 className="text-h1 mx-auto max-w-3xl text-white">
-              Ready to see your website before you pay?
-            </h2>
-            <p className="text-lead mx-auto mt-5 max-w-xl text-white/85">
+    <section id="final-cta" className="bg-navy-900 relative isolate overflow-hidden text-white">
+      <div aria-hidden="true" className="absolute inset-0 -z-10">
+        <Image
+          src="/hero-gradient.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-60"
+        />
+        <div className="cta-scrim absolute inset-0" />
+      </div>
+      <div className="container-brike py-[var(--section-pad-y)]">
+        <Reveal>
+          <p className="text-micro flex items-center gap-3 text-white/70">
+            <span aria-hidden="true" className="h-px w-8 bg-white/50" />
+            Start a project
+          </p>
+          <h2 className="text-display mt-6 max-w-4xl text-white [text-shadow:0_2px_24px_rgba(6,19,37,0.55)]">
+            Ready to see your website before you pay?
+          </h2>
+          <div className="mt-12 grid gap-8 border-t border-white/20 pt-8 md:grid-cols-12 md:items-center">
+            <p className="text-lead text-white/85 md:col-span-6">
               Design it now or send me a message. I usually reply the same day.
             </p>
-            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <div className="flex w-full flex-col gap-3 sm:flex-row md:col-span-6 md:justify-end">
               <Button
                 href="/build"
                 size="lg"
-                className="!text-navy bg-white hover:bg-white hover:!shadow-[0_10px_40px_-10px_rgba(255,255,255,0.6)]"
+                variant="secondary"
+                icon={<ArrowRight className="size-4" />}
+                iconPosition="right"
+                className="!bg-white !text-navy-900 w-full hover:!bg-white/90 sm:w-auto"
               >
                 Design my website
               </Button>
               <Button
                 href={waHref}
-                variant="whatsapp"
                 size="lg"
-                icon={<WhatsAppIcon className="size-5" />}
+                variant="ghost"
+                icon={<WhatsAppIcon className="text-whatsapp size-5" />}
+                className="glass-dark !text-white w-full hover:!bg-white/15 sm:w-auto"
               >
                 WhatsApp me
               </Button>
             </div>
           </div>
-        </div>
-      </Reveal>
-    </Section>
+          <p className="text-small mt-8 text-white/70">
+            Or email{' '}
+            <a href={`mailto:${site.email}`} className="link-draw text-white">
+              {site.email}
+            </a>
+          </p>
+        </Reveal>
+      </div>
+    </section>
   );
 }

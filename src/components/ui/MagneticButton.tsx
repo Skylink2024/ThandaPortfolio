@@ -44,9 +44,11 @@ export function MagneticButton({
       style={{ x: springX, y: springY }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className={cn('inline-flex', className)}
+      className="inline-flex"
     >
-      <Button {...rest}>{children}</Button>
+      <Button className={cn(className)} {...rest}>
+        {children}
+      </Button>
     </motion.div>
   );
 }
