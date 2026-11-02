@@ -318,7 +318,7 @@ html {
   width: 55vmax;
   height: 55vmax;
   background: radial-gradient(circle, rgba(92, 200, 255, 0.2), transparent 65%);
-  opacity: calc(0.4 + (1 - max(var(--p) - 0.5, 0.5 - var(--p)) * 2) * 0.6);
+  opacity: 0.85;
   animation: ambient-float-2 34s ease-in-out infinite alternate;
 }
 
