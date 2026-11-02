@@ -4,6 +4,10 @@ export interface Testimonial {
   business: string;
   quote: string;
   projectSlug?: string;
+  photo?: string;
+  /** e.g. Google review link */
+  sourceUrl?: string;
+  date: string;
 }
 
 /** Real client testimonials only. Starts empty — hide sections when empty. */

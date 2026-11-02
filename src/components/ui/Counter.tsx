@@ -8,9 +8,17 @@ export interface CounterProps {
   prefix?: string;
   suffix?: string;
   durationMs?: number;
+  /** Group thousands with commas, e.g. 15,000. */
+  thousands?: boolean;
 }
 
-export function Counter({ to, prefix = '', suffix = '', durationMs = 1400 }: CounterProps) {
+export function Counter({
+  to,
+  prefix = '',
+  suffix = '',
+  durationMs = 1400,
+  thousands = false,
+}: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.4 });
   const reduced = useReducedMotion();
@@ -40,7 +48,7 @@ export function Counter({ to, prefix = '', suffix = '', durationMs = 1400 }: Cou
   return (
     <motion.span ref={ref} className="tabular-nums">
       {prefix}
-      {shown}
+      {thousands ? shown.toLocaleString('en-US') : shown}
       {suffix}
     </motion.span>
   );

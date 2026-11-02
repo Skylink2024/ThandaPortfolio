@@ -1,24 +1,33 @@
-import { Button } from '@/components/ui/Button';
-import { Section } from '@/components/ui/Section';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { site } from '@data/site';
+import { Hero } from '@/components/home/Hero';
+import { StatsStrip } from '@/components/home/StatsStrip';
+import { IndustryMarquee } from '@/components/home/IndustryMarquee';
+import { HowItWorks } from '@/components/home/HowItWorks';
+import { BuilderTeaser } from '@/components/home/BuilderTeaser';
+import { PackagesPreview } from '@/components/home/PackagesPreview';
+import { BeforeAfter } from '@/components/home/BeforeAfter';
+import { WhyBrikeWeb } from '@/components/home/WhyBrikeWeb';
+import { WorkShowcase } from '@/components/home/WorkShowcase';
+import { MeetThanda } from '@/components/home/MeetThanda';
+import { Testimonials } from '@/components/home/Testimonials';
+import { FaqPreview } from '@/components/home/FaqPreview';
+import { FinalCta } from '@/components/home/FinalCta';
 
 export default function HomePage() {
   return (
-    <Section id="hero" tone="default">
-      <SectionHeading
-        eyebrow="Web design · Cape Town"
-        title={site.tagline}
-        subtitle={site.description}
-      />
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <Button href="/build" size="lg">
-          Design my website
-        </Button>
-        <Button href="/pricing" variant="outline" size="lg">
-          See pricing
-        </Button>
-      </div>
-    </Section>
+    <>
+      <Hero />
+      <StatsStrip />
+      <IndustryMarquee />
+      <HowItWorks />
+      <BuilderTeaser />
+      <PackagesPreview />
+      <BeforeAfter />
+      <WhyBrikeWeb />
+      <WorkShowcase />
+      <MeetThanda />
+      <Testimonials />
+      <FaqPreview />
+      <FinalCta />
+    </>
   );
 }
