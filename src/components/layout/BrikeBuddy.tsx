@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { X } from 'lucide-react';
+import { cn } from '@/lib/cn';
 
 const lines = [
   'Hi! Want to see your website before you pay?',
@@ -21,6 +22,15 @@ export function BrikeBuddy() {
   const [open, setOpen] = useState(false);
   const [line, setLine] = useState(0);
   const [hidden, setHidden] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
 
   useEffect(() => {
     if (reduced) return;
@@ -39,15 +49,23 @@ export function BrikeBuddy() {
   if (hidden || pathname.startsWith('/build') || pathname.startsWith('/admin')) return null;
 
   return (
-    <div className="fixed top-1/2 right-0 z-30 -translate-y-1/2">
+    <div
+      className={cn(
+        'fixed top-1/2 z-30 -translate-y-1/2',
+        isMobile ? 'left-0' : 'right-0',
+      )}
+    >
       <AnimatePresence>
         {open ? (
           <motion.div
-            initial={{ opacity: 0, x: 12, scale: 0.95 }}
+            initial={{ opacity: 0, x: isMobile ? -12 : 12, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 12, scale: 0.95 }}
+            exit={{ opacity: 0, x: isMobile ? -12 : 12, scale: 0.95 }}
             transition={{ duration: 0.25 }}
-            className="glass absolute top-1/2 right-[calc(100%+4px)] w-52 -translate-y-1/2 rounded-[var(--radius-lg)] p-3 text-sm text-gray-900 shadow-[var(--shadow-md)]"
+            className={cn(
+              'glass absolute top-1/2 w-52 -translate-y-1/2 rounded-[var(--radius-lg)] p-3 text-sm text-gray-900 shadow-[var(--shadow-md)]',
+              isMobile ? 'left-[calc(100%+4px)]' : 'right-[calc(100%+4px)]',
+            )}
           >
             <button
               type="button"
@@ -72,9 +90,9 @@ export function BrikeBuddy() {
           setOpen((v) => !v);
           setLine((l) => (open ? l : (l + 1) % lines.length));
         }}
-        initial={reduced ? false : { x: 40 }}
-        animate={{ x: 10 }}
-        whileHover={{ x: 0, rotate: -6 }}
+        initial={reduced ? false : { x: isMobile ? -40 : 40 }}
+        animate={{ x: isMobile ? -10 : 10 }}
+        whileHover={{ x: 0, rotate: isMobile ? 6 : -6 }}
         whileTap={{ scale: 0.92 }}
         transition={{ type: 'spring', stiffness: 260, damping: 18 }}
         className="block"

@@ -1,11 +1,13 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useReducedMotion } from 'framer-motion';
 import { site } from '@data/site';
 import { whatsappLink } from '@/lib/whatsapp';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { cn } from '@/lib/cn';
+import { useStickyCtaVisible } from '@/components/layout/MobileStickyCta';
 
 export interface FloatingWhatsAppProps {
   message?: string;
@@ -29,9 +31,20 @@ export function FloatingWhatsApp({
 }: FloatingWhatsAppProps) {
   const pathname = usePathname();
   const reduced = useReducedMotion();
+  const stickyVisible = useStickyCtaVisible();
+  const [isMobile, setIsMobile] = useState(false);
   const href = whatsappLink(site.whatsappNumber, message);
 
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+
   if (pathname.startsWith('/build')) return null;
+  if (isMobile && stickyVisible) return null;
 
   return (
     <Tooltip content="Chat on WhatsApp" className="fixed right-5 bottom-5 z-40 max-md:bottom-24">

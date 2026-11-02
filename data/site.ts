@@ -27,9 +27,8 @@ export const site: SiteConfig = {
   domain: 'brikeweb.co.za',
   url: 'https://brikeweb.co.za',
   email: 'brike.webdev@gmail.com',
-  // TODO(Thanda): replace with your new WhatsApp Business number
-  whatsappNumber: '27XXXXXXXXX',
-  whatsappDisplay: '[[PLACEHOLDER: +27 XX XXX XXXX]]',
+  whatsappNumber: '27655299753',
+  whatsappDisplay: '+27 65 529 9753',
   location: 'Cape Town, South Africa',
   hours: 'Mon–Fri 8am–5pm',
   tagline: 'Your website first. You pay when you love it.',

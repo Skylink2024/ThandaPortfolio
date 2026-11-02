@@ -11,13 +11,10 @@ export interface MobileStickyCtaProps {
   className?: string;
 }
 
-export function MobileStickyCta({ className }: MobileStickyCtaProps) {
+/** True once the visitor has scrolled far enough for the mobile action bar. */
+export function useStickyCtaVisible() {
   const pathname = usePathname();
   const [pastHero, setPastHero] = useState(false);
-  const waHref = whatsappLink(
-    site.whatsappNumber,
-    "Hi Thanda, I found Brike Web and I'd like a website.",
-  );
 
   useEffect(() => {
     const hero = document.getElementById('hero');
@@ -42,11 +39,18 @@ export function MobileStickyCta({ className }: MobileStickyCtaProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, [pathname]);
 
-  if (pathname.startsWith('/build') || pathname.startsWith('/contact')) {
-    return null;
-  }
+  const hiddenRoute = pathname.startsWith('/build') || pathname.startsWith('/contact');
+  return !hiddenRoute && pastHero;
+}
 
-  if (!pastHero) return null;
+export function MobileStickyCta({ className }: MobileStickyCtaProps) {
+  const waHref = whatsappLink(
+    site.whatsappNumber,
+    "Hi Thanda, I found Brike Web and I'd like a website.",
+  );
+  const visible = useStickyCtaVisible();
+
+  if (!visible) return null;
 
   return (
     <div
@@ -57,7 +61,7 @@ export function MobileStickyCta({ className }: MobileStickyCtaProps) {
     >
       <div className="flex gap-2">
         <Button href="/build" fullWidth size="sm">
-          Design my site
+          Design my website
         </Button>
         <Button href={waHref} variant="whatsapp" fullWidth size="sm">
           WhatsApp
