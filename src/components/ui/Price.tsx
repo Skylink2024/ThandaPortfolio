@@ -77,7 +77,7 @@ export function Price({
         className,
       )}
     >
-      <span aria-hidden="true" className="font-mono tracking-tight">
+      <span aria-hidden="true" className="font-mono tracking-tight text-orange-ink">
         {formatZAR(shown)}
       </span>
       <span className="text-small font-medium text-gray-500">{periodLabel[period]}</span>

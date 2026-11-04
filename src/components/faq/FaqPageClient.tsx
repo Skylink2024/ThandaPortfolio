@@ -71,7 +71,7 @@ export function FaqPageClient() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Type a keyword…"
-              className="mt-2 h-12 w-full rounded-[var(--radius-md)] border border-border bg-bg px-4 text-gray-900 outline-none focus:border-blue"
+              className="mt-2 h-12 w-full rounded-[var(--radius-md)] border border-border bg-bg px-4 text-gray-900 outline-none focus:border-navy"
             />
           </label>
 

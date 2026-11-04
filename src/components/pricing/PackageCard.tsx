@@ -25,12 +25,12 @@ export function PackageCard({ pkg, variant, selected = false, onSelect }: Packag
       className={cn(
         'relative flex h-full flex-col',
         full ? 'p-6' : 'p-5',
-        pkg.popular && 'border-gray-900',
+        pkg.popular && 'border-orange',
         selected && 'ring-2 ring-gray-900',
       )}
     >
       {pkg.popular ? (
-        <Badge tone="neutral" className="bg-gray-900 text-bg absolute -top-3 left-6">
+        <Badge tone="neutral" className="bg-orange text-navy absolute -top-3 left-6">
           Most popular
         </Badge>
       ) : null}

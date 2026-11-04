@@ -14,7 +14,7 @@ const BeforeAfterDemo = dynamic(() => import('./BeforeAfterDemo'), {
 
 export function BeforeAfter() {
   return (
-    <Section id="before-after" tone="surface">
+    <Section id="before-after" tone="default">
       <SectionHeading
         eyebrow="Before & after"
         title="From outdated to outstanding."

@@ -62,7 +62,7 @@ export function WorkCard({
         <span className="text-small flex shrink-0 items-center gap-1.5 text-gray-700">
           {meta}
           <ArrowUpRight
-            className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            className="size-4 text-blue transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             aria-hidden="true"
           />
         </span>

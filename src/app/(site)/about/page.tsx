@@ -45,7 +45,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <section className="pt-28 pb-[var(--section-pad-y)] md:pt-40">
+      <section className="bg-bg pt-28 pb-[var(--section-pad-y)] md:pt-40">
         <div className="container-brike grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <div className="border-border bg-surface-2 relative overflow-hidden rounded-[var(--radius-lg)] border">
@@ -88,7 +88,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <Section tone="surface">
+      <Section tone="default">
         <SectionHeading eyebrow="Principles" title="What I believe" />
         <ul className="grid gap-10 md:grid-cols-3">
           {beliefs.map((b, i) => (

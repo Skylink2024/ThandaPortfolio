@@ -30,7 +30,7 @@ export function PriceBar({ quote, className }: { quote: Quote; className?: strin
               Let&apos;s chat, I&apos;ll give you a custom quote.
             </p>
           ) : (
-            <p className="mt-1 font-mono text-lg font-bold text-gray-900">
+            <p className="mt-1 font-mono text-lg font-bold text-orange-ink">
               {formatZAR(quote.onceOff)}{' '}
               <span className="text-sm font-semibold text-gray-500">once-off</span>
               {quote.monthly > 0 ? (

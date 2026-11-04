@@ -40,7 +40,9 @@ export function Toggle({
           ) : null}
         </span>
         {description ? <span className="mt-1 block text-small text-gray-500">{description}</span> : null}
-        {priceLabel ? <span className="mt-2 block text-small font-medium text-blue">{priceLabel}</span> : null}
+        {priceLabel ? (
+          <span className="mt-2 block text-small font-semibold text-orange-ink">{priceLabel}</span>
+        ) : null}
       </span>
       <button
         type="button"
@@ -51,7 +53,7 @@ export function Toggle({
         onClick={() => onChange(!checked)}
         className={cn(
           'relative mt-0.5 h-7 w-12 shrink-0 rounded-full transition-colors',
-          checked ? 'bg-blue' : 'bg-gray-300',
+          checked ? 'bg-navy' : 'bg-gray-300',
         )}
       >
         <span

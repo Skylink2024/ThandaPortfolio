@@ -54,7 +54,7 @@ export function FloatingWhatsApp({
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
         className={cn(
-          'relative inline-flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-[var(--shadow-md)]',
+          'relative inline-flex size-14 items-center justify-center rounded-full bg-orange text-navy shadow-[var(--shadow-md)]',
           !reduced && 'brike-wa-pulse',
         )}
       >

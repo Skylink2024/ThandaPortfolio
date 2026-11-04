@@ -41,7 +41,7 @@ export function Services({ index }: { index?: string }) {
         eyebrow="Services"
         title="What I do"
         action={
-          <Link href="/pricing" className="text-small link-draw font-semibold text-gray-900">
+          <Link href="/pricing" className="text-small link-draw font-semibold text-link">
             Full pricing →
           </Link>
         }
@@ -57,14 +57,14 @@ export function Services({ index }: { index?: string }) {
               <span className="text-small text-gray-700 tabular-nums md:col-span-1">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <h3 className="font-heading text-2xl font-semibold tracking-tight text-gray-900 transition-transform duration-500 ease-out group-hover:translate-x-1 md:col-span-4 md:text-3xl">
+              <h3 className="font-heading text-2xl font-extrabold tracking-tight text-gray-900 transition-transform duration-500 ease-out group-hover:translate-x-1 md:col-span-4 md:text-3xl">
                 {s.title}
               </h3>
               <p className="text-gray-700 md:col-span-4">{s.body}</p>
               <span className="flex items-center justify-between gap-3 md:col-span-3 md:justify-end">
-                <span className="font-mono text-sm text-gray-900">{s.price}</span>
+                <span className="font-mono text-sm font-semibold text-orange-ink">{s.price}</span>
                 <ArrowUpRight
-                  className="size-5 text-gray-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-gray-900"
+                  className="size-5 text-blue transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   aria-hidden="true"
                 />
               </span>

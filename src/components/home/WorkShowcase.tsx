@@ -58,7 +58,7 @@ function WorkTile({ tile }: { tile: Tile }) {
         <span className="text-small flex shrink-0 items-center gap-1.5 text-gray-700">
           {tile.meta}
           <ArrowUpRight
-            className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            className="size-4 text-blue transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             aria-hidden="true"
           />
         </span>
@@ -127,7 +127,7 @@ export function WorkShowcase({
         eyebrow={isExample ? 'Example designs' : 'Selected work'}
         title={isExample ? 'What your website could look like' : 'Recent work'}
         action={
-          <Link href="/work" className="text-small link-draw font-semibold text-gray-900">
+          <Link href="/work" className="text-small link-draw font-semibold text-link">
             All work →
           </Link>
         }

@@ -23,6 +23,7 @@ export default async function ContactPage({
       <PageHeader
         eyebrow="Contact"
         title="Let's build your website"
+        accent="website"
         subtitle="Tell me about your business. I usually reply the same day."
       />
       <Section tone="default">

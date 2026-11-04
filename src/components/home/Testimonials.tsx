@@ -29,7 +29,7 @@ export function Testimonials() {
                         href={t.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue hover:underline"
+                        className="text-link hover:underline"
                       >
                         Source
                       </a>

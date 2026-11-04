@@ -97,7 +97,7 @@ export function WorkPageClient({ cmsProjects = [] }: { cmsProjects?: PublicCmsPr
             ))}
           </ul>
           <div className="mt-16">
-            <Button href="/build" size="lg" variant="secondary">
+            <Button href="/build" size="lg">
               Design yours
             </Button>
           </div>

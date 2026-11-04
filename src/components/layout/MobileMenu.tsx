@@ -9,6 +9,7 @@ import { site } from '@data/site';
 import { Button } from '@/components/ui/Button';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { SocialIcon } from '@/components/ui/SocialIcons';
+import { Logo } from '@/components/layout/Logo';
 import { whatsappLink } from '@/lib/whatsapp';
 import { duration, ease } from '@/lib/motion';
 
@@ -98,7 +99,8 @@ export function MobileMenu({
         >
           <div className="mb-8 flex items-center justify-between">
             <p id={titleId} className="font-heading text-lg font-extrabold">
-              Menu
+              <Logo tone="dark" className="h-8" />
+              <span className="sr-only">Menu</span>
             </p>
             <button
               type="button"

@@ -383,14 +383,15 @@ export default function AdminDashboard() {
   if (!user) {
     return (
       <div className="section-pad relative flex min-h-screen items-center justify-center">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(198,161,91,0.18),transparent_55%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(47,111,224,0.22),transparent_55%)]" />
         <form
           onSubmit={onLogin}
           className="relative w-full max-w-md space-y-5 border border-gold/25 bg-ink-soft/70 p-8 backdrop-blur-md"
         >
           <div className="flex items-center gap-3">
             <Image
-              src="/logo-mark.png"
+              src="/brand/webbie.svg"
+              unoptimized
               alt=""
               width={48}
               height={48}
