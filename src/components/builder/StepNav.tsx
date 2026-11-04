@@ -25,7 +25,7 @@ export function StepNav({
     <div>
       <div className="bg-surface-2 h-1.5 overflow-hidden rounded-full">
         <div
-          className="bg-blue h-full rounded-full transition-all duration-300"
+          className="bg-navy h-full rounded-full transition-all duration-300"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -42,8 +42,8 @@ export function StepNav({
                 onClick={() => clickable && onJump(i as BuilderStep)}
                 className={cn(
                   'inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold transition',
-                  current && 'border-blue bg-blue text-white',
-                  done && !current && 'border-blue/40 bg-blue-100 text-blue',
+                  current && 'border-navy bg-navy text-white',
+                  done && !current && 'border-navy/40 text-navy',
                   !done && !current && 'border-border text-gray-500',
                   !clickable && 'opacity-50',
                 )}

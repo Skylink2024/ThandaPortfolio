@@ -31,8 +31,8 @@ export function FinalCta() {
             <span aria-hidden="true" className="h-px w-8 bg-white/50" />
             Start a project
           </p>
-          <h2 className="text-display mt-6 max-w-4xl text-white [text-shadow:0_2px_24px_rgba(6,19,37,0.55)]">
-            Ready to see your website before you pay?
+          <h2 className="text-display mt-6 max-w-4xl text-white [text-shadow:0_2px_24px_rgba(10,26,54,0.55)]">
+            Ready to see your <span className="accent-word on-dark">website</span> before you pay?
           </h2>
           <div className="mt-12 grid gap-8 border-t border-white/20 pt-8 md:grid-cols-12 md:items-center">
             <p className="text-lead text-white/85 md:col-span-6">
@@ -42,19 +42,18 @@ export function FinalCta() {
               <Button
                 href="/build"
                 size="lg"
-                variant="secondary"
                 icon={<ArrowRight className="size-4" />}
                 iconPosition="right"
-                className="!bg-white !text-navy-900 w-full hover:!bg-white/90 sm:w-auto"
+                className="w-full sm:w-auto"
               >
                 Design my website
               </Button>
               <Button
                 href={waHref}
                 size="lg"
-                variant="ghost"
-                icon={<WhatsAppIcon className="text-whatsapp size-5" />}
-                className="glass-dark !text-white w-full hover:!bg-white/15 sm:w-auto"
+                variant="whatsapp"
+                icon={<WhatsAppIcon className="size-5" />}
+                className="w-full sm:w-auto"
               >
                 WhatsApp me
               </Button>

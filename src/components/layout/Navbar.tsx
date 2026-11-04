@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -9,6 +8,7 @@ import { Menu } from 'lucide-react';
 import type { SiteConfig } from '@data/site';
 import { Button } from '@/components/ui/Button';
 import { ThemeToggle } from '@/components/layout/ThemeToggle';
+import { Logo } from '@/components/layout/Logo';
 import { MobileMenu } from '@/components/layout/MobileMenu';
 import { cn } from '@/lib/cn';
 import { ease } from '@/lib/motion';
@@ -85,14 +85,7 @@ export function Navbar({ items, className }: NavbarProps) {
               }
               className="inline-flex origin-left"
             >
-              <Image
-                src="/logo.png"
-                alt="Brike Web home"
-                width={116}
-                height={64}
-                priority
-                className={cn('h-8 w-auto transition-[filter] duration-300', overHero && 'brightness-0 invert')}
-              />
+              <Logo tone={overHero ? 'dark' : 'light'} priority />
             </motion.span>
           </Link>
 
@@ -142,15 +135,7 @@ export function Navbar({ items, className }: NavbarProps) {
 
           <div className="flex items-center gap-2">
             <ThemeToggle className={overHero ? 'border-white/25 text-white' : undefined} />
-            <Button
-              href="/build"
-              size="sm"
-              variant="secondary"
-              className={cn(
-                'hidden md:inline-flex',
-                overHero && '!text-navy-900 bg-white shadow-none hover:bg-white/90',
-              )}
-            >
+            <Button href="/build" size="sm" className="hidden md:inline-flex">
               Design my site
             </Button>
             <button

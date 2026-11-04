@@ -6,7 +6,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 const tones: Record<NonNullable<BadgeProps['tone']>, string> = {
   neutral: 'bg-surface-2 text-gray-700',
-  blue: 'bg-blue-100 text-blue',
+  blue: 'bg-navy text-white',
   success: 'bg-success/15 text-success',
   warning: 'bg-warning/15 text-warning',
   danger: 'bg-danger/15 text-danger',

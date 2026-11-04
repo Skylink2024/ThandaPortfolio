@@ -5,7 +5,7 @@ const headingFamily: Record<string, string> = {
   bold: "Impact, 'Arial Narrow', sans-serif",
   luxury: "Georgia, 'Times New Roman', serif",
   playful: "'Trebuchet MS', ui-rounded, system-ui, sans-serif",
-  modern: 'var(--font-plus-jakarta), system-ui, sans-serif',
+  modern: 'var(--font-inter), system-ui, sans-serif',
 };
 
 export interface MiniSiteProps {

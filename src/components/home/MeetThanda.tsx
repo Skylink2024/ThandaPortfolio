@@ -84,7 +84,7 @@ export function MeetThanda({
           <p className="mt-6">
             <Link
               href="/about"
-              className="text-blue font-semibold underline-offset-4 hover:underline"
+              className="text-link font-semibold underline-offset-4 hover:underline"
             >
               Read my story →
             </Link>

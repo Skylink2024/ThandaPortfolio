@@ -1,26 +1,32 @@
 /* Brike Web design tokens — light (default) + dark via [data-theme="dark"] */
 
 :root {
-  /* Colours — light */
-  --navy: #0b1f3a;
-  --navy-900: #061325;
-  --navy-700: #13305a;
-  --blue: #1e6fff;
-  --blue-600: #1659d6;
-  --blue-100: #e6efff;
-  --cyan-glow: #5cc8ff;
+  /* Colours — light. The page is white, navy, and orange. Blue is Webbie and small icons only. */
+  --navy: #0a1a36;
+  --navy-900: #0a1a36;
+  --navy-700: #1a3158;
+  --blue: #2f6fe0;
+  --blue-600: #245bc0;
+  --blue-100: #e7effc;
+  --orange: #ff7a1a;
+  /* #FF7A1A is 2.6:1 on white, so accent text on white uses this darker orange. Fills stay --orange. */
+  --orange-ink: #b84300;
+  /* Links are navy so the page does not read as blue. 17:1 on white. */
+  --link: #0a1a36;
+  --cyan-glow: #2f6fe0;
   --bg: #ffffff;
-  --surface: #f3f6fb;
-  --surface-2: #e7edf6;
-  --border: #dde4ef;
-  --gray-900: #0b1f3a;
-  --gray-700: #24344c;
-  --gray-500: #3b4d66;
-  --gray-300: #b7c2d3;
+  --surface: #ffffff;
+  /* Cool hairline for controls and table heads. Not a section background. */
+  --surface-2: #e8edf4;
+  --border: #d5dce8;
+  --gray-900: #0a1a36;
+  --gray-700: #0a1a36;
+  --gray-500: #3a4c66;
+  --gray-300: #c5cedb;
   --success: #16a34a;
   --warning: #d97706;
   --danger: #dc2626;
-  --whatsapp: #25d366;
+  --whatsapp: #ff7a1a;
 
   /* Radii */
   --radius-sm: 6px;
@@ -30,13 +36,13 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(11, 31, 58, 0.06);
-  --shadow-md: 0 10px 30px -12px rgba(11, 31, 58, 0.18);
-  --shadow-lg: 0 30px 60px -24px rgba(11, 31, 58, 0.3);
-  --shadow-glow: 0 12px 32px -12px rgba(30, 111, 255, 0.35);
+  --shadow-sm: 0 1px 2px rgba(10, 26, 54, 0.06);
+  --shadow-md: 0 10px 30px -12px rgba(10, 26, 54, 0.18);
+  --shadow-lg: 0 30px 60px -24px rgba(10, 26, 54, 0.3);
+  --shadow-glow: 0 12px 32px -12px rgba(255, 122, 26, 0.45);
 
-  /* Brand gradient — restrained navy → blue */
-  --brand-gradient: linear-gradient(135deg, #0b1f3a 0%, #13305a 55%, #1e6fff 100%);
+  /* Brand gradient — navy only */
+  --brand-gradient: linear-gradient(160deg, #0a1a36 0%, #1a3158 100%);
 
   /* Type scale */
   --text-display: clamp(2.15rem, 8.2vw, 5.1rem);
@@ -78,25 +84,28 @@
 }
 
 [data-theme='dark'] {
-  --navy: #0b1f3a;
-  --navy-900: #061325;
-  --navy-700: #13305a;
-  --blue: #3d85ff;
-  --blue-600: #1e6fff;
-  --blue-100: #11264a;
-  --cyan-glow: #5cc8ff;
-  --bg: #0a0f18;
-  --surface: #111824;
-  --surface-2: #182130;
-  --border: #232d3d;
-  --gray-900: #f1f5f9;
-  --gray-700: #cbd5e1;
-  --gray-500: #94a3b8;
-  --gray-300: #475569;
+  --navy: #0a1a36;
+  --navy-900: #071226;
+  --navy-700: #1a3158;
+  --blue: #2f6fe0;
+  --blue-600: #245bc0;
+  --blue-100: #163056;
+  --orange: #ff7a1a;
+  --orange-ink: #ff7a1a;
+  --link: #ffffff;
+  --cyan-glow: #2f6fe0;
+  --bg: #0a1a36;
+  --surface: #0a1a36;
+  --surface-2: #1a3158;
+  --border: #2c4366;
+  --gray-900: #ffffff;
+  --gray-700: #ffffff;
+  --gray-500: #d5dce6;
+  --gray-300: #5a6e8c;
   --success: #22c55e;
   --warning: #f59e0b;
   --danger: #ef4444;
-  --whatsapp: #25d366;
+  --whatsapp: #ff7a1a;
 }
 
 .glass {

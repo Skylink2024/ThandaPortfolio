@@ -1,22 +1,23 @@
 import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/next';
-import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, JetBrains_Mono, Noto_Serif_Display } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { site } from '@data/site';
 import '@/styles/globals.css';
 
-const plusJakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['600'],
-  variable: '--font-plus-jakarta',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-inter',
   display: 'swap',
   preload: true,
 });
 
-const inter = Inter({
+const notoSerif = Noto_Serif_Display({
   subsets: ['latin'],
-  weight: ['400', '600'],
-  variable: '--font-inter',
+  weight: '600',
+  style: 'italic',
+  variable: '--font-noto-serif',
   display: 'swap',
   preload: true,
 });
@@ -55,7 +56,7 @@ export default function RootLayout({
     <html
       lang="en-ZA"
       suppressHydrationWarning
-      className={`${plusJakarta.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}
+      className={`${inter.variable} ${notoSerif.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bg font-sans text-gray-700">
         <ThemeProvider>

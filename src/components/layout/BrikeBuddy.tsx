@@ -76,7 +76,7 @@ export function BrikeBuddy() {
               <X className="size-3.5" />
             </button>
             <p className="pr-4">{lines[line]}</p>
-            <Link href="/build" className="text-blue mt-2 inline-block font-semibold">
+            <Link href="/build" className="text-link mt-2 inline-block font-semibold">
               Design my site →
             </Link>
           </motion.div>
@@ -100,25 +100,17 @@ export function BrikeBuddy() {
         <svg
           ref={ref}
           viewBox="0 0 64 64"
-          className="buddy-bob size-14 drop-shadow-[0_10px_18px_rgba(11,31,58,0.25)] md:size-16"
+          className="buddy-bob size-14 drop-shadow-[0_10px_18px_rgba(10,26,54,0.25)] md:size-16"
         >
-          <defs>
-            <linearGradient id="brike-body" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#3d85ff" />
-              <stop offset="1" stopColor="#13305a" />
-            </linearGradient>
-          </defs>
-          <rect x="6" y="12" width="52" height="40" rx="12" fill="url(#brike-body)" />
-          <path d="M6 30h52M24 12v18M40 30v22" stroke="#ffffff" strokeOpacity=".14" strokeWidth="2" />
-          <rect x="10" y="15" width="22" height="6" rx="3" fill="#ffffff" opacity=".18" />
+          <rect x="6" y="12" width="52" height="40" rx="14" fill="var(--blue)" />
+          <rect x="12" y="16" width="18" height="5" rx="2.5" fill="#fff" opacity=".25" />
+          <circle cx="50" cy="18" r="3.2" fill="var(--orange)" />
           <g className="buddy-blink">
             <circle cx="24" cy="32" r="6" fill="#fff" />
             <circle cx="42" cy="32" r="6" fill="#fff" />
-            <circle cx={24 + eye.x} cy={32 + eye.y} r="2.8" fill="#061325" />
-            <circle cx={42 + eye.x} cy={32 + eye.y} r="2.8" fill="#061325" />
+            <circle cx={24 + eye.x} cy={32 + eye.y} r="2.8" fill="var(--navy)" />
+            <circle cx={42 + eye.x} cy={32 + eye.y} r="2.8" fill="var(--navy)" />
           </g>
-          <circle cx="17" cy="41" r="3" fill="#ff9e8a" opacity=".55" />
-          <circle cx="49" cy="41" r="3" fill="#ff9e8a" opacity=".55" />
           <path d="M28 42q5 4 10 0" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" />
         </svg>
       </motion.button>

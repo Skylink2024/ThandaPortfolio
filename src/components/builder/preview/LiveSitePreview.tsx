@@ -6,7 +6,7 @@ import { cn } from '@/lib/cn';
 
 const fontStacks: Record<string, { heading: string; body: string }> = {
   modern: {
-    heading: 'var(--font-plus-jakarta), system-ui, sans-serif',
+    heading: 'var(--font-inter), system-ui, sans-serif',
     body: 'var(--font-inter), system-ui, sans-serif',
   },
   luxury: {

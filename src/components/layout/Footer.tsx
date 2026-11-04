@@ -1,10 +1,10 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { site } from '@data/site';
 import { Button } from '@/components/ui/Button';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { SocialIcon } from '@/components/ui/SocialIcons';
 import { CopyrightYear } from '@/components/layout/CopyrightYear';
+import { Logo } from '@/components/layout/Logo';
 import { whatsappLink } from '@/lib/whatsapp';
 import { cn } from '@/lib/cn';
 
@@ -41,13 +41,7 @@ export function Footer({ className }: FooterProps) {
       <div className="container-brike relative grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link href="/" aria-label="Brike Web home" className="inline-flex">
-            <Image
-              src="/logo.png"
-              alt="Brike Web"
-              width={140}
-              height={77}
-              className="h-10 w-auto brightness-0 invert"
-            />
+            <Logo tone="dark" className="h-9 md:h-10" />
           </Link>
           <p className="mt-4 max-w-xs text-small text-white/75">{site.tagline}</p>
           <p className="mt-2 max-w-xs text-small text-white/55">

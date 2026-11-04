@@ -27,7 +27,8 @@ export function ProjectImage({
         className={`flex items-center justify-center bg-navy-700 ${className}`}
       >
         <Image
-          src="/logo-mark.png"
+          src="/brand/webbie.svg"
+          unoptimized
           alt=""
           width={48}
           height={48}

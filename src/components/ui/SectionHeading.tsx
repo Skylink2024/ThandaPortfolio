@@ -9,6 +9,23 @@ export interface SectionHeadingProps {
   align?: 'left' | 'center';
   /** Right-hand slot on large screens (e.g. a "See all" link). */
   action?: React.ReactNode;
+  /** One word in the title, set in the serif italic accent. */
+  accent?: string;
+  /** Light type for a navy section. */
+  onDark?: boolean;
+}
+
+function titleWithAccent(title: string, accent?: string, onDark?: boolean) {
+  if (!accent) return title;
+  const index = title.indexOf(accent);
+  if (index === -1) return title;
+  return (
+    <>
+      {title.slice(0, index)}
+      <span className={cn('accent-word', onDark && 'on-dark')}>{accent}</span>
+      {title.slice(index + accent.length)}
+    </>
+  );
 }
 
 export function SectionHeading({
@@ -18,6 +35,8 @@ export function SectionHeading({
   subtitle,
   align = 'left',
   action,
+  accent,
+  onDark = false,
 }: SectionHeadingProps) {
   const centered = align === 'center';
 
@@ -26,12 +45,17 @@ export function SectionHeading({
       {eyebrow || index ? (
         <p
           className={cn(
-            'text-micro mb-5 flex items-center gap-3 text-gray-700',
+            'text-micro mb-5 flex items-center gap-3',
+            onDark ? 'text-white/70' : 'text-gray-500',
             centered && 'justify-center',
           )}
         >
-          {index ? <span className="text-gray-900 tabular-nums">{index}</span> : null}
-          {index && eyebrow ? <span aria-hidden="true" className="bg-gray-300 h-px w-8" /> : null}
+          {index ? (
+            <span className={cn('tabular-nums', onDark ? 'text-orange' : 'text-gray-900')}>{index}</span>
+          ) : null}
+          {index && eyebrow ? (
+            <span aria-hidden="true" className={cn('h-px w-8', onDark ? 'bg-white/40' : 'bg-gray-300')} />
+          ) : null}
           {eyebrow ? <span>{eyebrow}</span> : null}
         </p>
       ) : null}
@@ -42,8 +66,12 @@ export function SectionHeading({
         )}
       >
         <div className={cn(!centered && 'max-w-3xl')}>
-          <h2 className="text-h2 text-gray-900">{title}</h2>
-          {subtitle ? <p className="text-lead mt-4 text-gray-700">{subtitle}</p> : null}
+          <h2 className={cn('text-h2', onDark ? 'text-white' : 'text-gray-900')}>
+            {titleWithAccent(title, accent, onDark)}
+          </h2>
+          {subtitle ? (
+            <p className={cn('text-lead mt-4', onDark ? 'text-white/80' : 'text-gray-700')}>{subtitle}</p>
+          ) : null}
         </div>
         {action ? <div className="shrink-0">{action}</div> : null}
       </div>

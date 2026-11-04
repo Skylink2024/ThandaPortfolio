@@ -113,7 +113,7 @@ export function ContactForm({ designCode }: { designCode?: string }) {
   return (
     <Card className="p-6 md:p-8">
       {designCode ? (
-        <div className="mb-6 rounded-[var(--radius-md)] border border-blue/30 bg-blue-100 p-4 text-sm text-gray-900">
+        <div className="border-navy/20 bg-bg mb-6 rounded-[var(--radius-md)] border p-4 text-sm text-gray-900">
           Your design is attached. I&apos;ll open it from the link when I reply.
         </div>
       ) : null}
@@ -143,7 +143,7 @@ export function ContactForm({ designCode }: { designCode?: string }) {
               type={type}
               {...register(key)}
               className={cn(
-                'mt-2 h-12 w-full rounded-[var(--radius-md)] border bg-bg px-4 text-gray-900 outline-none focus:border-blue',
+                'mt-2 h-12 w-full rounded-[var(--radius-md)] border bg-bg px-4 text-gray-900 outline-none focus:border-navy',
                 errors[key] ? 'border-danger' : 'border-border',
               )}
               aria-invalid={Boolean(errors[key])}
@@ -161,7 +161,7 @@ export function ContactForm({ designCode }: { designCode?: string }) {
           <span className="text-micro text-gray-500">Package interest</span>
           <select
             {...register('packageInterest')}
-            className="mt-2 h-12 w-full rounded-[var(--radius-md)] border border-border bg-bg px-4 text-gray-900 outline-none focus:border-blue"
+            className="mt-2 h-12 w-full rounded-[var(--radius-md)] border border-border bg-bg px-4 text-gray-900 outline-none focus:border-navy"
           >
             <option value="not-sure">Not sure yet</option>
             {packages.map((p) => (
@@ -178,7 +178,7 @@ export function ContactForm({ designCode }: { designCode?: string }) {
             rows={5}
             {...register('message')}
             className={cn(
-              'mt-2 w-full rounded-[var(--radius-md)] border bg-bg px-4 py-3 text-gray-900 outline-none focus:border-blue',
+              'mt-2 w-full rounded-[var(--radius-md)] border bg-bg px-4 py-3 text-gray-900 outline-none focus:border-navy',
               errors.message ? 'border-danger' : 'border-border',
             )}
             aria-invalid={Boolean(errors.message)}
@@ -222,7 +222,7 @@ export function ContactDetails() {
   );
 
   const rows = [
-    { label: 'Email', value: <a className="link-draw text-gray-900" href={`mailto:${site.email}`}>{site.email}</a> },
+    { label: 'Email', value: <a className="link-draw text-link" href={`mailto:${site.email}`}>{site.email}</a> },
     { label: 'Studio', value: site.location },
     { label: 'Hours', value: site.hours },
   ];

@@ -96,7 +96,7 @@ export function BeforeAfterSlider({
       <span className="text-micro pointer-events-none absolute top-3 left-3 rounded-[var(--radius-sm)] bg-black/70 px-2.5 py-1 text-white">
         {labelBefore}
       </span>
-      <span className="bg-blue text-micro pointer-events-none absolute top-3 right-3 rounded-[var(--radius-sm)] px-2.5 py-1 text-white">
+      <span className="bg-orange text-navy text-micro pointer-events-none absolute top-3 right-3 rounded-[var(--radius-sm)] px-2.5 py-1">
         {labelAfter}
       </span>
 

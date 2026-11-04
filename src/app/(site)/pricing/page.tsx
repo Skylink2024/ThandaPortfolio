@@ -51,6 +51,7 @@ export default function PricingPage() {
       <PageHeader
         eyebrow="Pricing"
         title="Honest prices. Pay only when you love it."
+        accent="love"
         subtitle={
           <>
             Every price is once-off in Rand unless it says per month. No deposit. Nothing to pay
@@ -60,11 +61,11 @@ export default function PricingPage() {
         }
       />
 
-      <Section id="packages-section" tone="default" className="scroll-mt-20">
+      <Section id="packages-section" tone="navy" className="scroll-mt-20">
         <PackageGrid />
       </Section>
 
-      <Section tone="surface">
+      <Section tone="default">
         <SectionHeading eyebrow="Billing" title="What do the prices mean?" />
         <ul className="grid gap-10 md:grid-cols-3">
           {meanings.map((m, i) => (
@@ -105,7 +106,7 @@ export default function PricingPage() {
 
       <Configurator />
 
-      <Section id="pricing-faq" tone="surface">
+      <Section id="pricing-faq" tone="default">
         <SectionHeading eyebrow="FAQ" title="Pricing questions, answered" />
         <Reveal className="max-w-3xl">
           <Accordion items={pricingFaqs} />

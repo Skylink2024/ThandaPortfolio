@@ -20,7 +20,7 @@ export interface QuoteModalProps {
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
 const inputClass =
-  'border-border bg-bg focus-visible:outline-blue h-12 w-full rounded-[var(--radius-md)] border px-4 text-gray-900 placeholder:text-gray-500';
+  'border-border bg-bg focus-visible:outline-navy h-12 w-full rounded-[var(--radius-md)] border px-4 text-gray-900 placeholder:text-gray-500';
 
 export function QuoteModal({ open, onClose, quote, shareUrl }: QuoteModalProps) {
   const [status, setStatus] = useState<Status>('idle');

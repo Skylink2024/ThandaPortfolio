@@ -72,7 +72,7 @@ function impactChip(kind: 'included' | 'upgrade' | 'addon', label: string) {
   const tones = {
     included: 'bg-success/15 text-success',
     upgrade: 'bg-warning/15 text-warning',
-    addon: 'bg-blue-100 text-blue',
+    addon: 'bg-orange text-navy',
   };
   return (
     <span className={cn('rounded-full px-2 py-0.5 text-[11px] font-semibold', tones[kind])}>
@@ -263,7 +263,7 @@ export function BuilderShell() {
                 maxLength={40}
                 onChange={(e) => updateBusiness({ name: e.target.value })}
                 placeholder="e.g. Ocean Fade Barbers"
-                className="border-border bg-bg mt-2 h-12 w-full rounded-[var(--radius-md)] border px-4 outline-none focus:border-blue"
+                className="border-border bg-bg mt-2 h-12 w-full rounded-[var(--radius-md)] border px-4 outline-none focus:border-navy"
               />
             </label>
             <label className="block">
@@ -271,7 +271,7 @@ export function BuilderShell() {
               <select
                 value={business.industry}
                 onChange={(e) => updateBusiness({ industry: e.target.value as Industry })}
-                className="border-border bg-bg mt-2 h-12 w-full rounded-[var(--radius-md)] border px-4 outline-none focus:border-blue"
+                className="border-border bg-bg mt-2 h-12 w-full rounded-[var(--radius-md)] border px-4 outline-none focus:border-navy"
               >
                 {industries.map((i) => (
                   <option key={i.id} value={i.id}>
@@ -285,7 +285,7 @@ export function BuilderShell() {
               <input
                 value={business.location}
                 onChange={(e) => updateBusiness({ location: e.target.value })}
-                className="border-border bg-bg mt-2 h-12 w-full rounded-[var(--radius-md)] border px-4 outline-none focus:border-blue"
+                className="border-border bg-bg mt-2 h-12 w-full rounded-[var(--radius-md)] border px-4 outline-none focus:border-navy"
               />
             </label>
             <label className="block">
@@ -294,7 +294,7 @@ export function BuilderShell() {
                 value={business.tagline}
                 maxLength={70}
                 onChange={(e) => updateBusiness({ tagline: e.target.value })}
-                className="border-border bg-bg mt-2 h-12 w-full rounded-[var(--radius-md)] border px-4 outline-none focus:border-blue"
+                className="border-border bg-bg mt-2 h-12 w-full rounded-[var(--radius-md)] border px-4 outline-none focus:border-navy"
               />
               <div className="mt-2 flex flex-wrap gap-2">
                 {industryConfig.suggestedTaglines.map((t) => (
@@ -302,7 +302,7 @@ export function BuilderShell() {
                     key={t}
                     type="button"
                     onClick={() => updateBusiness({ tagline: t })}
-                    className="border-border rounded-full border px-3 py-1 text-xs font-medium text-gray-700 hover:border-blue"
+                    className="border-border rounded-full border px-3 py-1 text-xs font-medium text-gray-700 hover:border-navy"
                   >
                     {t}
                   </button>
@@ -323,7 +323,7 @@ export function BuilderShell() {
                   onClick={() => applyPreset(p.id as PresetId)}
                   className={cn(
                     'rounded-[var(--radius-md)] border p-3 text-left transition',
-                    style.presetId === p.id ? 'border-blue ring-2 ring-blue/30' : 'border-border',
+                    style.presetId === p.id ? 'border-navy ring-2 ring-navy/30' : 'border-border',
                   )}
                 >
                   <div
@@ -387,7 +387,7 @@ export function BuilderShell() {
                     onClick={() => setFontPair(f.id)}
                     className={cn(
                       'rounded-[var(--radius-md)] border px-3 py-2 text-left',
-                      style.fontPairId === f.id ? 'border-blue' : 'border-border',
+                      style.fontPairId === f.id ? 'border-navy' : 'border-border',
                     )}
                   >
                     <span className="text-xl font-bold">{f.sample}</span>
@@ -401,7 +401,7 @@ export function BuilderShell() {
               <button
                 type="button"
                 onClick={() => fileRef.current?.click()}
-                className="border-border mt-2 flex w-full flex-col items-center justify-center rounded-[var(--radius-md)] border border-dashed px-4 py-8 text-center text-sm text-gray-600 hover:border-blue"
+                className="border-border mt-2 flex w-full flex-col items-center justify-center rounded-[var(--radius-md)] border border-dashed px-4 py-8 text-center text-sm text-gray-600 hover:border-navy"
               >
                 {style.logoUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -438,7 +438,7 @@ export function BuilderShell() {
                     onClick={() => togglePage(p.id)}
                     className={cn(
                       'flex w-full items-center justify-between gap-3 rounded-[var(--radius-md)] border px-4 py-3 text-left',
-                      on ? 'border-blue bg-blue-100/40' : 'border-border',
+                      on ? 'border-navy bg-bg ring-1 ring-navy' : 'border-border',
                       p.alwaysOn && 'opacity-80',
                     )}
                   >
@@ -467,7 +467,7 @@ export function BuilderShell() {
                     onClick={() => toggleFeature(f.id)}
                     className={cn(
                       'flex w-full items-center justify-between gap-3 rounded-[var(--radius-md)] border px-4 py-3 text-left',
-                      on ? 'border-blue bg-blue-100/40' : 'border-border',
+                      on ? 'border-navy bg-bg ring-1 ring-navy' : 'border-border',
                     )}
                   >
                     <span className="font-semibold text-gray-900">{f.label}</span>
@@ -502,7 +502,7 @@ export function BuilderShell() {
                   onClick={() => toggleExtra(id)}
                   className={cn(
                     'flex w-full items-center justify-between gap-3 rounded-[var(--radius-md)] border px-4 py-3 text-left',
-                    on ? 'border-blue bg-blue-100/40' : 'border-border',
+                    on ? 'border-navy bg-bg ring-1 ring-navy' : 'border-border',
                   )}
                 >
                   <span>
@@ -553,7 +553,7 @@ export function BuilderShell() {
                       }}
                       className={cn(
                         'rounded-[var(--radius-md)] border px-3 py-3 text-sm font-semibold',
-                        on ? 'border-blue bg-blue-100/40' : 'border-border',
+                        on ? 'border-navy bg-bg ring-1 ring-navy' : 'border-border',
                       )}
                     >
                       {label}
@@ -612,15 +612,15 @@ export function BuilderShell() {
                 <ul className="space-y-1 text-sm text-gray-700">
                   <li>
                     Once-off total:{' '}
-                    <span className="font-mono font-bold">{formatZAR(quote.onceOff)}</span>
+                    <span className="font-mono font-bold text-orange-ink">{formatZAR(quote.onceOff)}</span>
                   </li>
                   <li>
                     Monthly:{' '}
-                    <span className="font-mono font-bold">{formatZAR(quote.monthly)}/month</span>
+                    <span className="font-mono font-bold text-orange-ink">{formatZAR(quote.monthly)}/month</span>
                   </li>
                   <li>
                     Yearly:{' '}
-                    <span className="font-mono font-bold">{formatZAR(quote.yearly)}/year</span>
+                    <span className="font-mono font-bold text-orange-ink">{formatZAR(quote.yearly)}/year</span>
                   </li>
                 </ul>
               )}
@@ -661,7 +661,7 @@ export function BuilderShell() {
           Build a preview of your site and see the price live. Free, no sign-up.
         </p>
         {sharedBanner ? (
-          <p className="bg-blue-100 text-blue mt-4 rounded-[var(--radius-md)] px-4 py-2 text-sm font-medium">
+          <p className="border-navy/15 bg-bg text-gray-900 mt-4 rounded-[var(--radius-md)] border px-4 py-2 text-sm font-medium">
             Shared design loaded — tweak anything or send it to me.
           </p>
         ) : null}

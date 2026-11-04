@@ -9,6 +9,9 @@
   --color-blue-600: var(--blue-600);
   --color-blue-100: var(--blue-100);
   --color-cyan-glow: var(--cyan-glow);
+  --color-orange: var(--orange);
+  --color-orange-ink: var(--orange-ink);
+  --color-link: var(--link);
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -25,16 +28,17 @@
   /* Admin compatibility aliases (old portfolio class names → Brike palette) */
   --color-ink: var(--navy-900);
   --color-ink-soft: var(--navy-700);
-  --color-cream: #f1f5f9;
-  --color-cream-dim: #94a3b8;
+  --color-cream: #ffffff;
+  --color-cream-dim: #c8c2ba;
   --color-gold: var(--blue);
-  --color-gold-bright: var(--cyan-glow);
+  --color-gold-bright: var(--blue);
   --color-gold-deep: var(--blue-600);
   --color-bronze: var(--navy-700);
   --color-on-gold: #ffffff;
 
-  --font-heading: var(--font-plus-jakarta);
+  --font-heading: var(--font-inter);
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-noto-serif);
   --font-mono: var(--font-jetbrains);
 
   --radius-sm: 6px;
@@ -87,13 +91,14 @@ html {
   h4,
   h5,
   h6 {
-    font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-weight: 700;
     color: var(--gray-900);
   }
 }
 
 :focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--navy);
   outline-offset: 2px;
 }
 
@@ -123,8 +128,8 @@ html {
 .text-display {
   font-size: var(--text-display);
   line-height: var(--leading-display);
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
   text-wrap: balance;
   overflow-wrap: break-word;
 }
@@ -132,22 +137,35 @@ html {
 .text-h1 {
   font-size: var(--text-h1);
   line-height: var(--leading-h1);
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
 .text-h2 {
   font-size: var(--text-h2);
   line-height: var(--leading-h2);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.03em;
 }
 
 .text-h3 {
   font-size: var(--text-h3);
   line-height: var(--leading-h3);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Occasional serif italic, matching the word "Web" in the logo. */
+.accent-word {
+  font-family: var(--font-serif), "Noto Serif Display", Georgia, serif;
+  font-style: italic;
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
+  color: var(--orange-ink);
+}
+
+.accent-word.on-dark {
+  color: var(--orange);
 }
 
 .text-lead {
@@ -209,17 +227,17 @@ html {
 @keyframes brike-wa-pulse {
   0% {
     box-shadow:
-      0 0 0 0 rgba(37, 211, 102, 0.55),
+      0 0 0 0 rgba(255, 122, 26, 0.5),
       var(--shadow-md);
   }
   70% {
     box-shadow:
-      0 0 0 16px rgba(37, 211, 102, 0),
+      0 0 0 16px rgba(255, 122, 26, 0),
       var(--shadow-md);
   }
   100% {
     box-shadow:
-      0 0 0 0 rgba(37, 211, 102, 0),
+      0 0 0 0 rgba(255, 122, 26, 0),
       var(--shadow-md);
   }
 }
@@ -253,9 +271,9 @@ html {
 .hero-scrim {
   background: linear-gradient(
     180deg,
-    rgba(6, 19, 37, 0.88) 0%,
-    rgba(6, 19, 37, 0.82) 55%,
-    rgba(6, 19, 37, 0.78) 100%
+    rgba(10, 26, 54, 0.92) 0%,
+    rgba(10, 26, 54, 0.86) 55%,
+    rgba(10, 26, 54, 0.8) 100%
   );
 }
 
@@ -263,9 +281,9 @@ html {
   .hero-scrim {
     background: linear-gradient(
       90deg,
-      rgba(6, 19, 37, 0.92) 0%,
-      rgba(6, 19, 37, 0.78) 46%,
-      rgba(6, 19, 37, 0.28) 100%
+      rgba(10, 26, 54, 0.94) 0%,
+      rgba(10, 26, 54, 0.82) 46%,
+      rgba(10, 26, 54, 0.4) 100%
     );
   }
 }
@@ -273,9 +291,9 @@ html {
 .cta-scrim {
   background: linear-gradient(
     165deg,
-    rgba(6, 19, 37, 0.9) 0%,
-    rgba(6, 19, 37, 0.86) 55%,
-    rgba(6, 19, 37, 0.8) 100%
+    rgba(10, 26, 54, 0.94) 0%,
+    rgba(10, 26, 54, 0.88) 55%,
+    rgba(10, 26, 54, 0.84) 100%
   );
 }
 
@@ -306,7 +324,7 @@ html {
   left: 0;
   width: 60vmax;
   height: 60vmax;
-  background: radial-gradient(circle, rgba(30, 111, 255, 0.2), transparent 65%);
+  background: radial-gradient(circle, rgba(10, 26, 54, 0.06), transparent 65%);
   opacity: calc(1 - var(--p) * 0.7);
   animation: ambient-float-1 28s ease-in-out infinite alternate;
 }
@@ -317,7 +335,7 @@ html {
   right: 0;
   width: 55vmax;
   height: 55vmax;
-  background: radial-gradient(circle, rgba(92, 200, 255, 0.2), transparent 65%);
+  background: radial-gradient(circle, rgba(10, 26, 54, 0.04), transparent 65%);
   opacity: 0.85;
   animation: ambient-float-2 34s ease-in-out infinite alternate;
 }
@@ -328,7 +346,7 @@ html {
   left: 25%;
   width: 50vmax;
   height: 50vmax;
-  background: radial-gradient(circle, rgba(255, 170, 130, 0.22), transparent 65%);
+  background: radial-gradient(circle, rgba(255, 122, 26, 0.07), transparent 65%);
   opacity: calc(0.15 + var(--p) * 0.85);
   animation: ambient-float-3 40s ease-in-out infinite alternate;
 }
@@ -338,22 +356,22 @@ html {
   inset: 0;
   background: radial-gradient(
     420px circle at var(--mx) var(--my),
-    rgba(30, 111, 255, 0.1),
+    rgba(10, 26, 54, 0.05),
     transparent 70%
   );
 }
 
 [data-theme='dark'] .ambient-orb-1 {
-  background: radial-gradient(circle, rgba(30, 111, 255, 0.22), transparent 65%);
+  background: radial-gradient(circle, rgba(47, 111, 224, 0.22), transparent 65%);
 }
 [data-theme='dark'] .ambient-orb-2 {
-  background: radial-gradient(circle, rgba(92, 200, 255, 0.12), transparent 65%);
+  background: radial-gradient(circle, rgba(47, 111, 224, 0.1), transparent 65%);
 }
 [data-theme='dark'] .ambient-orb-3 {
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.14), transparent 65%);
+  background: radial-gradient(circle, rgba(255, 122, 26, 0.08), transparent 65%);
 }
 [data-theme='dark'] .ambient-touch {
-  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(92, 200, 255, 0.08), transparent 70%);
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(47, 111, 224, 0.1), transparent 70%);
 }
 
 @keyframes ambient-float-1 {

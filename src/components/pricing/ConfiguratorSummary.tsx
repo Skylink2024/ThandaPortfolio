@@ -63,7 +63,7 @@ export function ConfiguratorSummary({ quote, buildHref, onEmail }: ConfiguratorS
       </ul>
 
       {quote.autoAdded.length > 0 ? (
-        <ul className="text-small bg-blue-100 text-blue mt-3 space-y-1 rounded-[var(--radius-md)] p-3">
+        <ul className="text-small border-navy/15 bg-bg text-gray-900 mt-3 space-y-1 rounded-[var(--radius-md)] border p-3">
           {quote.autoAdded.map((note) => (
             <li key={note}>{note}</li>
           ))}
@@ -104,14 +104,14 @@ export function ConfiguratorSummary({ quote, buildHref, onEmail }: ConfiguratorS
 
         <div className="text-small flex items-baseline justify-between gap-3 text-gray-700">
           <span>Monthly</span>
-          <span className="font-mono font-medium text-gray-900">
+          <span className="font-mono font-semibold text-orange-ink">
             {formatZAR(quote.monthly)}/month
           </span>
         </div>
         {quote.yearly > 0 ? (
           <div className="text-small flex items-baseline justify-between gap-3 text-gray-700">
             <span>Yearly (domain)</span>
-            <span className="font-mono font-medium text-gray-900">
+            <span className="font-mono font-semibold text-orange-ink">
               {formatZAR(quote.yearly)}/year
             </span>
           </div>
@@ -150,7 +150,7 @@ export function ConfiguratorSummary({ quote, buildHref, onEmail }: ConfiguratorS
       <p className="mt-4 text-center">
         <Link
           href={buildHref}
-          className="text-blue text-small font-semibold underline-offset-4 hover:underline"
+          className="text-link text-small font-semibold underline-offset-4 hover:underline"
         >
           Want to see it? Design it in the builder →
         </Link>

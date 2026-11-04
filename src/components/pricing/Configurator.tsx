@@ -150,7 +150,7 @@ export function Configurator({ initialPackage = 'business' }: ConfiguratorProps)
           {/* Step A */}
           <fieldset>
             <legend className="text-h3 mb-4 text-gray-900">
-              <span className="text-blue mr-2">A.</span>Choose your package
+              <span className="text-orange-ink mr-2">A.</span>Choose your package
             </legend>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {packages.map((p) => (
@@ -158,8 +158,8 @@ export function Configurator({ initialPackage = 'business' }: ConfiguratorProps)
                   key={p.id}
                   className={cn(
                     'border-border bg-bg relative flex cursor-pointer flex-col rounded-[var(--radius-md)] border p-4 transition-colors',
-                    'has-[:focus-visible]:outline-blue has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2',
-                    'has-[:checked]:border-blue has-[:checked]:bg-blue-100',
+                    'has-[:focus-visible]:outline-navy has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2',
+                    'has-[:checked]:border-navy has-[:checked]:bg-bg has-[:checked]:ring-1 has-[:checked]:ring-navy',
                     p.popular && 'border-gray-900',
                   )}
                 >
@@ -172,12 +172,12 @@ export function Configurator({ initialPackage = 'business' }: ConfiguratorProps)
                     className="sr-only"
                   />
                   {p.popular ? (
-                    <span className="bg-blue text-micro absolute -top-2.5 right-3 rounded-[var(--radius-sm)] px-2 py-0.5 font-semibold text-white">
+                    <span className="bg-orange text-navy text-micro absolute -top-2.5 right-3 rounded-[var(--radius-sm)] px-2 py-0.5 font-semibold">
                       Most popular
                     </span>
                   ) : null}
                   <span className="font-semibold text-gray-900">{p.name}</span>
-                  <span className="font-mono text-lg font-bold text-gray-900">
+                  <span className="font-mono text-lg font-bold text-orange-ink">
                     {formatZAR(p.price)}
                   </span>
                   <span className="text-micro text-gray-500">once-off</span>
@@ -189,7 +189,7 @@ export function Configurator({ initialPackage = 'business' }: ConfiguratorProps)
           {/* Step B */}
           <div>
             <h3 className="text-h3 mb-4 text-gray-900">
-              <span className="text-blue mr-2">B.</span>Add extras
+              <span className="text-orange-ink mr-2">B.</span>Add extras
             </h3>
 
             <div className="space-y-8">
@@ -231,7 +231,7 @@ export function Configurator({ initialPackage = 'business' }: ConfiguratorProps)
                             <p className="font-semibold text-gray-900" id="extra-pages-label">
                               Extra pages
                             </p>
-                            <p className="text-small text-blue mt-1 font-medium">
+                            <p className="text-small text-orange-ink mt-1 font-medium">
                               +{formatZAR(extraPage.price)} each
                             </p>
                             <p className="text-micro mt-1 text-gray-500">
@@ -249,7 +249,7 @@ export function Configurator({ initialPackage = 'business' }: ConfiguratorProps)
                               aria-label="Remove an extra page"
                               disabled={state.extraPages <= 0}
                               onClick={() => dispatch({ type: 'pages', value: state.extraPages - 1 })}
-                              className="border-border hover:border-blue flex size-11 items-center justify-center rounded-full border text-gray-900 disabled:opacity-40"
+                              className="border-border hover:border-navy flex size-11 items-center justify-center rounded-full border text-gray-900 disabled:opacity-40"
                             >
                               <Minus className="size-4" aria-hidden="true" />
                             </button>
@@ -264,7 +264,7 @@ export function Configurator({ initialPackage = 'business' }: ConfiguratorProps)
                               aria-label="Add an extra page"
                               disabled={state.extraPages >= MAX_EXTRA_PAGES}
                               onClick={() => dispatch({ type: 'pages', value: state.extraPages + 1 })}
-                              className="border-border hover:border-blue flex size-11 items-center justify-center rounded-full border text-gray-900 disabled:opacity-40"
+                              className="border-border hover:border-navy flex size-11 items-center justify-center rounded-full border text-gray-900 disabled:opacity-40"
                             >
                               <Plus className="size-4" aria-hidden="true" />
                             </button>

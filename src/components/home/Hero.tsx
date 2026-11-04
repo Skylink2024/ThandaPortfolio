@@ -52,14 +52,10 @@ export function Hero() {
         className="container-brike grid items-center gap-14 lg:grid-cols-12 lg:gap-10"
       >
         <div className="min-w-0 lg:col-span-6">
-          <h1 className="text-display text-white [text-shadow:0_2px_24px_rgba(6,19,37,0.55)]">
+          <h1 className="text-display text-white [text-shadow:0_2px_24px_rgba(10,26,54,0.55)]">
             <span className="block tracking-[-0.05em]">Your website first.</span>
             <span className="mt-2 block text-[0.46em] leading-[1.15] font-medium tracking-[-0.03em] text-white/80 sm:mt-3 sm:text-[0.42em]">
-              You pay when you{' '}
-              <span className="text-white underline decoration-[#5cc8ff] decoration-2 underline-offset-[0.18em]">
-                love it
-              </span>
-              .
+              You pay when you <span className="accent-word on-dark">love</span> it.
             </span>
           </h1>
 
@@ -72,10 +68,9 @@ export function Hero() {
             <MagneticButton
               href="/build"
               size="lg"
-              variant="secondary"
               strength={0.15}
               fullWidth
-              className="!bg-white !text-navy-900 w-full shadow-[0_18px_40px_-14px_rgba(255,255,255,0.45)] hover:!bg-white/90 sm:w-auto"
+              className="w-full sm:w-auto"
               icon={<ArrowRight className="size-4" />}
               iconPosition="right"
             >
@@ -85,9 +80,9 @@ export function Hero() {
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-dark inline-flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] px-6 text-base font-semibold text-white transition hover:bg-white/15 sm:h-14 sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-orange px-6 text-base font-semibold text-navy transition hover:brightness-95 sm:h-14 sm:w-auto"
             >
-              <WhatsAppIcon className="text-whatsapp size-5" />
+              <WhatsAppIcon className="size-5" />
               WhatsApp me
             </a>
           </div>
@@ -99,7 +94,13 @@ export function Hero() {
                 className="glass-dark flex items-center justify-between gap-4 rounded-[var(--radius-lg)] px-4 py-3 min-[480px]:block min-[480px]:py-4"
               >
                 <dt className="text-xs font-semibold tracking-wide text-white/80">{f.label}</dt>
-                <dd className="font-heading text-lg font-semibold tracking-tight text-white min-[480px]:mt-1.5 sm:text-2xl">
+                <dd
+                  className={
+                    f.label === 'Websites from'
+                      ? 'font-heading text-lg font-bold tracking-tight text-orange min-[480px]:mt-1.5 sm:text-2xl'
+                      : 'font-heading text-lg font-semibold tracking-tight text-white min-[480px]:mt-1.5 sm:text-2xl'
+                  }
+                >
                   {f.value}
                 </dd>
               </div>

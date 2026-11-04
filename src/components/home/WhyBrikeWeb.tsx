@@ -32,7 +32,11 @@ const reasons = [
 export function WhyBrikeWeb() {
   return (
     <Section id="why-brike-web" tone="default">
-      <SectionHeading eyebrow="Why work with me" title="Why small businesses choose Brike Web" />
+      <SectionHeading
+        eyebrow="Why work with me"
+        title="Why small businesses choose Brike Web"
+        accent="Web"
+      />
       <ul className="border-border grid border-t sm:grid-cols-2 lg:grid-cols-3">
         {reasons.map(({ title, body }, i) => (
           <Reveal

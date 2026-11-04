@@ -51,7 +51,7 @@ export function CaseStudy({ project }: { project: Project }) {
         </div>
       </Section>
 
-      <Section tone="surface">
+      <Section tone="default">
         <div className="grid gap-6 md:grid-cols-3">
           {(
             [
@@ -87,7 +87,7 @@ export function CaseStudy({ project }: { project: Project }) {
         {pkg ? (
           <p className="mt-6 text-gray-700">
             Package used:{' '}
-            <Link href="/pricing" className="text-blue font-semibold hover:underline">
+            <Link href="/pricing" className="text-link font-semibold hover:underline">
               {pkg.name}
             </Link>
           </p>
@@ -111,7 +111,7 @@ export function CaseStudy({ project }: { project: Project }) {
               <Image src={next.cover} alt="" fill className="object-cover" sizes="80px" />
             </div>
             <div>
-              <p className="font-semibold text-gray-900 group-hover:text-blue">{next.name}</p>
+              <p className="font-semibold text-gray-900 group-hover:text-orange-ink">{next.name}</p>
               <p className="text-sm text-gray-500">{next.summary}</p>
             </div>
           </Link>

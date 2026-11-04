@@ -8,8 +8,8 @@ export interface SectionProps {
 }
 
 const tones: Record<NonNullable<SectionProps['tone']>, string> = {
-  default: 'bg-transparent text-gray-900',
-  surface: 'bg-surface/60 text-gray-900',
+  default: 'bg-bg text-gray-900',
+  surface: 'bg-bg text-gray-900',
   navy: 'bg-navy text-white',
 };
 

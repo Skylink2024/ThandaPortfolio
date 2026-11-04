@@ -34,12 +34,16 @@ const groups: Group[] = [
 ];
 
 function PriceCell({ extra }: { extra: Extra }) {
-  return <span className="font-mono font-medium text-gray-900">{formatPrice(extra.price, extra.billing)}</span>;
+  return (
+    <span className="font-mono font-semibold text-orange-ink">
+      {formatPrice(extra.price, extra.billing)}
+    </span>
+  );
 }
 
 export function ExtrasTable() {
   return (
-    <Section id="extras" tone="surface" className="scroll-mt-20">
+    <Section id="extras" tone="default" className="scroll-mt-20">
       <SectionHeading
         eyebrow="Extras"
         title="Add only what you need"

@@ -17,12 +17,12 @@ export interface ButtonProps
 
 const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary:
-    'bg-blue text-white shadow-[var(--shadow-glow)] hover:bg-blue-600',
-  secondary: 'bg-gray-900 text-bg shadow-[var(--shadow-md)] hover:opacity-90',
+    'bg-orange text-navy shadow-[var(--shadow-glow)] hover:brightness-95',
+  secondary: 'bg-navy text-white shadow-[var(--shadow-md)] hover:bg-navy-700',
   ghost: 'bg-transparent text-gray-900 hover:bg-surface-2',
-  whatsapp: 'bg-whatsapp text-white hover:brightness-105',
+  whatsapp: 'bg-orange text-navy hover:brightness-95',
   outline:
-    'border border-border bg-transparent text-gray-900 hover:border-blue hover:text-blue',
+    'border border-border bg-transparent text-gray-900 hover:border-navy hover:text-navy',
 };
 
 const sizeClasses: Record<NonNullable<ButtonProps['size']>, string> = {
@@ -56,7 +56,7 @@ export function Button({
   ...rest
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)] font-semibold whitespace-nowrap transition-all duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue disabled:pointer-events-none disabled:opacity-50',
+    'inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)] font-semibold whitespace-nowrap transition-all duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy disabled:pointer-events-none disabled:opacity-50',
     variantClasses[variant],
     sizeClasses[size],
     fullWidth && 'w-full',
