@@ -1,4 +1,3 @@
-import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingWhatsApp } from '@/components/layout/FloatingWhatsApp';
@@ -8,13 +7,9 @@ import { AmbientField } from '@/components/layout/AmbientField';
 import { BrikeBuddy } from '@/components/layout/BrikeBuddy';
 import { site } from '@data/site';
 
-export default function SiteLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <SmoothScroll>
+    <>
       <AmbientField />
       <a href="#main" className="skip-link">
         Skip to content
@@ -29,6 +24,6 @@ export default function SiteLayout({
       <BrikeBuddy />
       <FloatingWhatsApp />
       <MobileStickyCta />
-    </SmoothScroll>
+    </>
   );
 }
